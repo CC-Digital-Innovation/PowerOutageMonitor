@@ -1,0 +1,59 @@
+gis-api:
+  url: "https://services.arcgis.com/BLN4oKB0N1YSgvY8/arcgis/rest/services/Power_Outages_(View)/FeatureServer/0/query"
+  headers: 
+  params:
+    # buffer distance for input geometry
+    distance: "1"
+
+    # response format
+    f: "json"
+
+    # syntax depends on "geomtryType", check documentation: https://developers.arcgis.com/documentation/common-data-types/geometry-objects.htm
+    # geometry: ""
+
+    # precision (decimal places) of RETURNED geometry
+    geometryPrecision: "6"
+
+    # input geometry type, other options: esriGeometryMultipoint | esriGeometryPolyline | esriGeometryPolygon | esriGeometryEnvelope
+    geometryType: "esriGeometryPoint"
+
+    # spatial relation that allows to search with longitude, latitude values
+    inSR: "4326"
+
+    # returned fields 
+    outFields: "OBJECTID, UtilityCompany, StartDate, EstimatedRestoreDate, Cause, ImpactedCustomers, County, OutageStatus, OutageType, GlobalID, IncidentId"
+    
+    # output spatial relation to return longitude, latitude values
+    outSR: "4326"
+
+    # units for distance parameter, other options: esriSRUnit_Meter | esriSRUnit_StatuteMile | esriSRUnit_Foot | esriSRUnit_Kilometer | esriSRUnit_NauticalMile | esriSRUnit_USNauticalMile
+    unit: "esriSRUnit_Meter"
+
+    where: "1=1"
+
+pge-api:
+  url: "https://apim.cloud.pge.com/cocoutage/outages/getOutagesRegions"
+  headers: 
+  params:
+    regionType: "city"
+    expand: "true"
+
+date-time:
+  # timezone to return, find more at: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List
+  timezone: "America/Los_Angeles"
+  timeFormat: "%m/%d/%Y %I:%M:%S %p %Z"
+
+logger:
+  logLevel: "DEBUG"
+  fileName: "test"
+  sysLog:
+    host: "logs.papertrailapp.com"
+    port: 49638
+
+geocode:
+  # more at: https://developers.arcgis.com/rest/geocode/api-reference/geocoding-find-address-candidates.htm
+  url: "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates"
+  headers:
+  params:
+    f: "json"
+    outFields: "location"
