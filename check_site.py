@@ -33,6 +33,7 @@ def set_log_level(log_level):
     else:
         logger.enable("")
 
+@logger.catch
 def convert_epoch_to_datetime(epoch):
     """convert epoch to datetime with config-specified timezone
     
@@ -53,6 +54,7 @@ def convert_epoch_to_datetime(epoch):
         return converted_datetime.astimezone(pytz.timezone(config["date-time"]["timezone"]))
     return converted_datetime
 
+@logger.catch
 def get_gis_power_status(site):
     """checks the power status of a site using CalOES's Power Outage Incident API.
     (more at: https://gis.data.ca.gov/datasets/CalEMA::power-outage-incidents/about)
@@ -115,6 +117,7 @@ def get_gis_power_status(site):
         site_status["OutageStatus"] = "Restored"
         return site_status
 
+@logger.catch
 def get_pge_power_status(site):
     """checks the power status of a site using PG&E's API
 
@@ -184,6 +187,7 @@ def get_pge_power_status(site):
 #TODO functions for other APIs, get list of specific power providers
 
 #function to redirect which function API to call
+@logger.catch
 def check_which_api_to_call(site, provider_name):
     if provider_name == Providers.GIS:
         logger.info("GIS API USED")
@@ -192,7 +196,7 @@ def check_which_api_to_call(site, provider_name):
         logger.info("PGE API USED")
         logger.info(json.dumps(get_pge_power_status(site), indent=4, sort_keys=True))
 
-
+@logger.catch
 def main():
     set_log_level(config["logger"]["logLevel"])
     site_data_obj = SiteData(Providers.GIS)
