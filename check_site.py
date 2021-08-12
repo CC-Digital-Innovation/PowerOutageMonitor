@@ -4,7 +4,7 @@ from loguru import logger
 import pytz
 import requests
 import yaml
-from siteData import siteData,providers
+from site_data import SiteData, Providers
 import sys
 
 config = yaml.safe_load(open("config.yaml"))
@@ -33,7 +33,7 @@ def set_log_level(log_level):
     else:
         logger.enable("")
 
-def convertEpochToDateTime(epoch):
+def convert_epoch_to_datetime(epoch):
     """convert epoch to datetime with config-specified timezone
     
     Parameters
@@ -48,18 +48,18 @@ def convertEpochToDateTime(epoch):
         If it is not specified, timezone defaults to local.
     """
 
-    dateAndTime = datetime.datetime.fromtimestamp(epoch, datetime.datetime.now().astimezone().tzinfo)
+    converted_datetime = datetime.datetime.fromtimestamp(epoch, datetime.datetime.now().astimezone().tzinfo)
     if config["date-time"]["timezone"]:
-        return dateAndTime.astimezone(pytz.timezone(config["date-time"]["timezone"]))
-    return dateAndTime
+        return converted_datetime.astimezone(pytz.timezone(config["date-time"]["timezone"]))
+    return converted_datetime
 
-def getGisPowerStatus(site):
+def get_gis_power_status(site):
     """checks the power status of a site using CalOES's Power Outage Incident API.
     (more at: https://gis.data.ca.gov/datasets/CalEMA::power-outage-incidents/about)
 
     Parameters
     ----------
-    site : siteData
+    site : SiteData
 
     Returns
     -------
@@ -91,36 +91,36 @@ def getGisPowerStatus(site):
 
     response = requests.get(url, headers=headers, params=params)
 
-    responseContent = json.loads(response.content)
+    response_content = json.loads(response.content)
 
     # get list of outages
     try:
-        statuses = responseContent['features']
+        statuses = response_content['features']
     except KeyError:
-        logger.error(responseContent)
+        logger.error(response_content)
         return None
 
     if len(statuses) == 1:
-        siteStatus = statuses[0]["attributes"]
+        site_status = statuses[0]["attributes"]
         
         # convert epoch to formatted datetime
-        if "StartDate" in siteStatus:
-            siteStatus["StartDate"] = convertEpochToDateTime(siteStatus["StartDate"]//(10**3)).strftime(config["date-time"]["timeFormat"])
-        if "EstimatedRestoreDate" in siteStatus:
-            siteStatus["EstimatedRestoreDate"] = convertEpochToDateTime(siteStatus["EstimatedRestoreDate"]//(10**3)).strftime(config["date-time"]["timeFormat"])
+        if "StartDate" in site_status:
+            site_status["StartDate"] = convert_epoch_to_datetime(site_status["StartDate"]//(10**3)).strftime(config["date-time"]["timeFormat"])
+        if "EstimatedRestoreDate" in site_status:
+            site_status["EstimatedRestoreDate"] = convert_epoch_to_datetime(site_status["EstimatedRestoreDate"]//(10**3)).strftime(config["date-time"]["timeFormat"])
 
-        return siteStatus
+        return site_status
     else:
-        siteStatus = site
-        siteStatus["OutageStatus"] = "Restored"
-        return siteStatus
+        site_status = site
+        site_status["OutageStatus"] = "Restored"
+        return site_status
 
-def getPgePowerStatus(site):
+def get_pge_power_status(site):
     """checks the power status of a site using PG&E's API
 
     Parameters
     ----------
-    site : siteData
+    site : SiteData
 
     Returns
     -------
@@ -153,57 +153,57 @@ def getPgePowerStatus(site):
 
     response = requests.get(url, headers=headers, params=params)
 
-    responseContent = json.loads(response.content)
+    response_content = json.loads(response.content)
 
     # get list of outages based on region
-    outageRegions = responseContent['outagesRegions']
+    outage_regions = response_content['outagesRegions']
 
-    for outageRegion in outageRegions:
+    for outage_region in outage_regions:
         # parse for matching region
-        if site['Region'] == outageRegion['regionName']:
-            for outage in outageRegion['outages']:
+        if site['Region'] == outage_region['regionName']:
+            for outage in outage_region['outages']:
                 # parse for matching longitude and latitude
                 # note that PG&E uses (longitude, latitude) vs. Google Map's (latitude, longitude)
                 if site['Long'] == outage['longitude'] and site['Lat'] == outage['latitude']:
                     # convert epoch to formatted datetime
                     if "autoEtor" in outage:
-                        outage["autoEtor"] = convertEpochToDateTime(int(outage["autoEtor"])).strftime(config["date-time"]["timeFormat"])
+                        outage["autoEtor"] = convert_epoch_to_datetime(int(outage["autoEtor"])).strftime(config["date-time"]["timeFormat"])
                     if "crewEta" in outage:
-                        outage["crewEta"] = convertEpochToDateTime(int(outage["crewEta"])).strftime(config["date-time"]["timeFormat"])
+                        outage["crewEta"] = convert_epoch_to_datetime(int(outage["crewEta"])).strftime(config["date-time"]["timeFormat"])
                     if "currentEtor" in outage:
-                        outage["currentEtor"] = convertEpochToDateTime(int(outage["currentEtor"])).strftime(config["date-time"]["timeFormat"])
+                        outage["currentEtor"] = convert_epoch_to_datetime(int(outage["currentEtor"])).strftime(config["date-time"]["timeFormat"])
                     if "lastUpdateTime" in outage:
-                        outage["lastUpdateTime"] = convertEpochToDateTime(int(outage["lastUpdateTime"])).strftime(config["date-time"]["timeFormat"])
+                        outage["lastUpdateTime"] = convert_epoch_to_datetime(int(outage["lastUpdateTime"])).strftime(config["date-time"]["timeFormat"])
                     if "outageStartTime" in outage:
-                        outage["outageStartTime"] = convertEpochToDateTime(int(outage["outageStartTime"])).strftime(config["date-time"]["timeFormat"])
+                        outage["outageStartTime"] = convert_epoch_to_datetime(int(outage["outageStartTime"])).strftime(config["date-time"]["timeFormat"])
                     return outage
-    siteStatus = site
-    siteStatus["OutageStatus"] = "Restored"
-    return siteStatus
+    site_status = site
+    site_status["OutageStatus"] = "Restored"
+    return site_status
 
 #TODO functions for other APIs, get list of specific power providers
 
 #function to redirect which function API to call
-def checkWhichApiToCall(site, providerName):
-    if providerName == providers.GIS:
+def check_which_api_to_call(site, provider_name):
+    if provider_name == Providers.GIS:
         logger.info("GIS API USED")
-        logger.info(json.dumps(getGisPowerStatus(site), indent=4, sort_keys=True))
-    elif providerName == providers.PGE:
+        logger.info(json.dumps(get_gis_power_status(site), indent=4, sort_keys=True))
+    elif provider_name == Providers.PGE:
         logger.info("PGE API USED")
-        logger.info(json.dumps(getPgePowerStatus(site), indent=4, sort_keys=True))
+        logger.info(json.dumps(get_pge_power_status(site), indent=4, sort_keys=True))
 
 
 def main():
     set_log_level(config["logger"]["logLevel"])
-    siteDataObj = siteData(providers.GIS)
-    siteDataObj.readJson(siteDataObj.readFromCSV('site.csv'))
-    for site in siteDataObj.site_list:
-        checkWhichApiToCall(siteDataObj.getSiteData(site) , siteDataObj.serviceProviderTag)
+    site_data_obj = SiteData(Providers.GIS)
+    site_data_obj.read_json(site_data_obj.read_from_csv('site.csv'))
+    for site in site_data_obj.site_list:
+        check_which_api_to_call(site_data_obj.get_site_data(site) , site_data_obj.service_provider_tag)
 
-    siteDataObj = siteData(providers.PGE)
-    siteDataObj.readJsonFromFile('site.json')
-    for site in siteDataObj.site_list:
-        checkWhichApiToCall(siteDataObj.getSiteData(site) , siteDataObj.serviceProviderTag)
+    site_data_obj = SiteData(Providers.PGE)
+    site_data_obj.read_json_from_file('site.json')
+    for site in site_data_obj.site_list:
+        check_which_api_to_call(site_data_obj.get_site_data(site) , site_data_obj.service_provider_tag)
     
 if __name__ == "__main__":
     main()
