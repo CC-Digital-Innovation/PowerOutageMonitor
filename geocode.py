@@ -36,10 +36,10 @@ def get_long_lat(address):
 
     if len(jsonResponse["candidates"]) > 1:
         logger.error("Address '" + address + "' is not specific enough.")
-        return None
+        return None , None
     elif len(jsonResponse["candidates"]) <= 0:
         logger.error("Could not find address '" + address + "'.")
-        return None
+        return None , None
     else:
         point = jsonResponse["candidates"][0]["location"]
         return point["x"], point["y"]
@@ -47,7 +47,7 @@ def get_long_lat(address):
 @logger.catch
 def main():
     #Test with multiple addresses
-    logger.info(get_long_lat("1600 Pennsylvania Ave NW, DC"))
+    logger.info(get_long_lat("791 Junction Avenue Livermore CA 94551"))
 
 if __name__ == "__main__":
     main()
