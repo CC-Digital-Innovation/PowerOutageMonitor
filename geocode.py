@@ -1,4 +1,3 @@
-import geocoder
 import json
 from loguru import logger
 import requests
@@ -6,7 +5,8 @@ import yaml
 
 config = yaml.safe_load(open("config.yaml"))
 
-def getLongLat(address):
+@logger.catch
+def get_long_lat(address):
     """Uses ArcGIS's REST API 'findAddressCandidates' to find the longitude and latitude of a given address.
     (more at: https://developers.arcgis.com/rest/geocode/api-reference/geocoding-find-address-candidates.htm)
     
@@ -44,8 +44,10 @@ def getLongLat(address):
         point = jsonResponse["candidates"][0]["location"]
         return point["x"], point["y"]
 
+@logger.catch
 def main():
     #Test with multiple addresses
+    logger.info(get_long_lat("1600 Pennsylvania Ave NW, DC"))
 
 if __name__ == "__main__":
     main()
