@@ -1,6 +1,9 @@
+
 # PowerOutageMonitor
 
-TODO simple overview of use/purpose
+[![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/) 
+
+These python scripts use a series of API requests to check if a given address (USA) has an ongoing power outage or not. The data is parsed from a CSV or a JSON file. The script currently uses two open REST APIs, PGE and GIS to check for outage status. 
 
 ## Table of Contents
 * [Getting Started](#getting-started)
@@ -53,7 +56,12 @@ TODO simple overview of use/purpose
 ### Usage
 
 * The configuration file ([config.yaml](https://github.com/CC-Digital-Innovation/PowerOutageMonitor/blob/main/config.yaml)) can run as is. Make adjustments to the file as necessary.
-* TODO add more usage details
+* The data files, site.csv and site.json must be changed to have real address and names for real-world application.
+* For customization, only need to edit the check_site.py file main() function. The default implementation shows different API calls and data parsing methods.
+* To run the script on a terminal to make appropriate changes, navigate to the directory and run the following command: -  
+   ``` bash
+   python3 check_site.py
+    ```
 
 ## Authors
 * Rohan Chopra <<rohan.chopra@computacenter.com>>
