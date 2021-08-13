@@ -69,7 +69,7 @@ These python scripts use a series of API requests to check if a given address (U
 
 ## History
 
-See [CHANGELOG.md](TODO add link to changelog file)
+See [CHANGELOG.md](https://github.com/CC-Digital-Innovation/PowerOutageMonitor/blob/main/CHANGELOG.md)
 
 ## License
 MIT License
