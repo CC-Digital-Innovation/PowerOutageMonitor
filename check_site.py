@@ -1,6 +1,8 @@
 import datetime
 import json
 from loguru import logger
+import logging
+import logging.handlers
 import pytz
 import requests
 import yaml
@@ -24,9 +26,9 @@ def set_log_level(log_level):
     #            "\snowmail_{time:YYYY_MM_DD}.log", level=log_level, rotation="100 MB")
     
     # Log to syslog
-    # handler = logging.handlers.SysLogHandler(
-    #     address=(config["logger"]["sysLog"]["host"], config["logger"]["sysLog"]["port"]))
-    # logger.add(handler)
+    handler = logging.handlers.SysLogHandler(
+        address=(config["logger"]["sysLog"]["host"], config["logger"]["sysLog"]["port"]))
+    logger.add(handler)
 
     if log_level == "QUIET":
         logger.disable("")
