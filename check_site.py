@@ -26,9 +26,9 @@ def set_log_level(log_level):
     #            "\snowmail_{time:YYYY_MM_DD}.log", level=log_level, rotation="100 MB")
     
     # Log to syslog
-    handler = logging.handlers.SysLogHandler(
-        address=(config["logger"]["sysLog"]["host"], config["logger"]["sysLog"]["port"]))
-    logger.add(handler)
+    # handler = logging.handlers.SysLogHandler(
+    #     address=(config["logger"]["sysLog"]["host"], config["logger"]["sysLog"]["port"]))
+    # logger.add(handler)
 
     if log_level == "QUIET":
         logger.disable("")
@@ -194,22 +194,39 @@ def check_which_api_to_call(site, provider_name):
     if provider_name == Providers.GIS:
         logger.info("GIS API USED")
         logger.info(json.dumps(get_gis_power_status(site), indent=4, sort_keys=True))
+        return json.dumps(get_gis_power_status(site), sort_keys=True)
     elif provider_name == Providers.PGE:
         logger.info("PGE API USED")
         logger.info(json.dumps(get_pge_power_status(site), indent=4, sort_keys=True))
+        return json.dumps(get_pge_power_status(site), sort_keys=True)
 
-@logger.catch
-def main():
-    set_log_level(config["logger"]["logLevel"])
-    site_data_obj = SiteData(Providers.GIS)
-    site_data_obj.read_json(site_data_obj.read_from_csv('site.csv'))
-    for site in site_data_obj.site_list:
-        check_which_api_to_call(site_data_obj.get_site_data(site) , site_data_obj.service_provider_tag)
 
-    site_data_obj = SiteData(Providers.PGE)
-    site_data_obj.read_json_from_file('site.json')
-    for site in site_data_obj.site_list:
-        check_which_api_to_call(site_data_obj.get_site_data(site) , site_data_obj.service_provider_tag)
-    
-if __name__ == "__main__":
-    main()
+
+
+
+
+# @logger.catch
+
+# def callCSV():
+#     # set_log_level(config["logger"]["logLevel"])
+#     site_data_obj = SiteData(Providers.GIS)
+#     site_data_obj.read_json(site_data_obj.read_from_csv('site.csv'))
+#     for site in site_data_obj.site_list:
+#         print(site)
+#         # check_which_api_to_call(site_data_obj.get_site_data(site) , site_data_obj.service_provider_tag)
+#
+#
+# def callJSON():
+#     site_data_obj = SiteData(Providers.PGE)
+#     site_data_obj.read_json_from_file('site.json')
+#     jsonoutput = []
+#     for site in site_data_obj.site_list:
+#         print(site)
+#         # jsonoutput.append(check_which_api_to_call(site_data_obj.get_site_data(site), site_data_obj.service_provider_tag))
+#     return  jsonoutput
+
+#
+#
+#
+# if __name__ == "__main__":
+#     callCSV()

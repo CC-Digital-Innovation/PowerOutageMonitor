@@ -8,6 +8,7 @@ class SiteData:
     def __init__(self,service_provider):
         self.site_list = {}
         self.service_provider_tag = service_provider
+        self.read_json_from_file('site.json')
 
     def read_from_csv(self,filename):
         """
@@ -46,10 +47,14 @@ class SiteData:
         """
         JSONResponses = json.loads(jsonData)
         for JSONResponse in JSONResponses:
-            address = JSONResponse["Address"] + " " + JSONResponse["city"] + " " + JSONResponse["state"] + " " + JSONResponse["zipcode"]
-            [long, lat] = get_long_lat(address)
-            if long is not None and lat is not None:
-                self.add_values_to_site_list(JSONResponse["Sitename"], address, JSONResponse["Region"], long, lat)
+            if JSONResponse.get("Address") != None and JSONResponse.get("city") != None and JSONResponse.get("state") != None and JSONResponse.get("zipcode") != None:
+                address = JSONResponse.get("Address") + " " + JSONResponse.get("city") + " " + JSONResponse.get("state") + " " + JSONResponse.get("zipcode")
+                [long, lat] = get_long_lat(address)
+                if long is not None and lat is not None:
+                    self.add_values_to_site_list(JSONResponse["Sitename"], address, JSONResponse.get("Region"), long,lat)
+            else:
+                self.add_values_to_site_list(JSONResponse["Sitename"], None, JSONResponse.get("Region"), None, None)
+
     def read_json_from_file(self,fileName):
         """
         Read data from a JSON file and add it to the site list.
@@ -68,10 +73,14 @@ class SiteData:
         jsonData = open(fileName,)
         JSONResponses = json.load(jsonData)
         for JSONResponse in JSONResponses:
-            address = JSONResponse["Address"] + " " + JSONResponse["city"] + " " + JSONResponse["state"] + " " + JSONResponse["zipcode"]
-            [long, lat] = get_long_lat(address)
-            if long is not None and lat is not None:
-                self.add_values_to_site_list(JSONResponse["Sitename"],address,JSONResponse["Region"],long,lat)
+            if JSONResponse.get("Address") != None and JSONResponse.get("city") != None and JSONResponse.get("state") != None and JSONResponse.get("zipcode") != None:
+                address = JSONResponse.get("Address") + " " + JSONResponse.get("city") + " " + JSONResponse.get("state") + " " + JSONResponse.get("zipcode")
+                [long, lat] = get_long_lat(address)
+                if long is not None and lat is not None:
+                    self.add_values_to_site_list(JSONResponse["Sitename"],address,JSONResponse.get("Region"),long,lat)
+            else:
+                self.add_values_to_site_list(JSONResponse["Sitename"], None, JSONResponse.get("Region"), None, None)
+
 
     def add_values_to_site_list(self,Sitename, Address, Region, Long, Lat):
         """
@@ -113,6 +122,24 @@ class SiteData:
         """
         if Sitename in self.site_list:
             return self.site_list[Sitename]
+        else:
+            return None
+
+    def checkandAddforAddressExist(self, site, address,region):
+        if site.get("Address") is None:
+            site["Address"] = address
+            site["Region"] = region
+            [long, lat] = get_long_lat(address)
+            site["Long"] = long
+            site["Lat"] = lat
+            if long is not None and lat is not None:
+                self.site_list[site["Sitename"]] = site
+                return site
+
+            else:
+                return None
+        else:
+            return site
 
     def return_vals(self):
        """
@@ -122,6 +149,7 @@ class SiteData:
         Site_list data LIST
        """
        return self.site_list
+
 
 
 
