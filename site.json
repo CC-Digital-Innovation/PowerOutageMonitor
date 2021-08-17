@@ -33,19 +33,11 @@
         "Region": "Antioch"
     },
     {
-        "Sitename": "SiteInLivemore3",
-        "Address": "7912 Junction Avenue",
-        "city": "Livermore" ,
-        "state": "CA",
-        "zipcode": "94551" ,
-        "Region": "Alameda"
+        "Sitename": "SiteInLivemore3"
+
     },
     {
-        "Sitename": "SiteInWoodland",
-        "Address": "7912 Junction Avenue",
-        "city": "Livermore" ,
-        "state": "CA",
-        "zipcode": "94551" ,
-        "Region": "Woodland"
+        "Sitename": "SiteInWoodland"
+
     }
 ]
