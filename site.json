@@ -1,51 +1,542 @@
 [
     {
-        "Sitename": "SiteInLivemore",
-        "Address": "791 Junction Avenue",
-        "city": "Livermore" ,
-        "state": "CA",
-        "zipcode": "94551" ,
-        "Region": "Alameda"
+        "Sitename": "Alturas537"
     },
     {
-        "Sitename": "SiteInNevada",
-        "Address": "7912 Junction Avenue",
-        "city": "Livermore" ,
-        "state": "CA",
-        "zipcode": "94551" ,
-        "Region": "Nevada City"
-
+        "Sitename": "Anaheim698"
     },
     {
-        "Sitename": "SiteInAnderson",
-        "Address": "1234 Some Address",
-        "city": "City" ,
-        "state": "CA",
-        "zipcode": "12345" ,
-        "Region": "Anderson"
+        "Sitename": "Arleta587"
     },
     {
-        "Sitename": "SiteInAntioch",
-        "Address": "1234 Some Address",
-        "city": "City" ,
-        "state": "CA",
-        "zipcode": "12345" ,
-        "Region": "Antioch"
+        "Sitename": "Arvin661"
     },
     {
-        "Sitename": "SiteInLivemore3",
-        "Address": "7912 Junction Avenue",
-        "city": "Livermore" ,
-        "state": "CA",
-        "zipcode": "94551" ,
-        "Region": "Alameda"
+        "Sitename": "Auburn570"
     },
     {
-        "Sitename": "SiteInWoodland",
-        "Address": "7912 Junction Avenue",
-        "city": "Livermore" ,
-        "state": "CA",
-        "zipcode": "94551" ,
-        "Region": "Woodland"
+        "Sitename": "Bakersfield529"
+    },
+    {
+        "Sitename": "BakersfieldSW679"
+    },
+    {
+        "Sitename": "Banning641"
+    },
+    {
+        "Sitename": "Barstow582"
+    },
+    {
+        "Sitename": "Bellflower606"
+    },
+    {
+        "Sitename": "BellGardens576"
+    },
+    {
+        "Sitename": "Bishop585"
+    },
+    {
+        "Sitename": "Blythe528"
+    },
+    {
+        "Sitename": "Brawley597"
+    },
+    {
+        "Sitename": "Capitola550"
+    },
+    {
+        "Sitename": "Carmichael625"
+    },
+    {
+        "Sitename": "Chico520"
+    },
+    {
+        "Sitename": "ChulaVista613"
+    },
+    {
+        "Sitename": "Clearlake830"
+    },
+    {
+        "Sitename": "Clovis580"
+    },
+    {
+        "Sitename": "Coalinga603"
+    },
+    {
+        "Sitename": "Colusa564"
+    },
+    {
+        "Sitename": "Compton581"
+    },
+    {
+        "Sitename": "Concord523"
+    },
+    {
+        "Sitename": "CorteMadera534"
+    },
+    {
+        "Sitename": "CostaMesa628"
+    },
+    {
+        "Sitename": "CrescentCity524"
+    },
+    {
+        "Sitename": "CulverCity514"
+    },
+    {
+        "Sitename": "DalyCity599"
+    },
+    {
+        "Sitename": "Davis598"
+    },
+    {
+        "Sitename": "Delano615"
+    },
+    {
+        "Sitename": "ElCajon669"
+    },
+    {
+        "Sitename": "ElCentro527"
+    },
+    {
+        "Sitename": "ElCerrito556"
+    },
+    {
+        "Sitename": "ElMonte685"
+    },
+    {
+        "Sitename": "Eureka526"
+    },
+    {
+        "Sitename": "Fairfield621"
+    },
+    {
+        "Sitename": "FallRiverMills643"
+    },
+    {
+        "Sitename": "Folsom655"
+    },
+    {
+        "Sitename": "Fontana657"
+    },
+    {
+        "Sitename": "FontanaCDTC699"
+    },
+    {
+        "Sitename": "FontanaDLPC688"
+    },
+    {
+        "Sitename": "FortBragg590"
+    },
+    {
+        "Sitename": "Fremont644"
+    },
+    {
+        "Sitename": "Fresno505"
+    },
+    {
+        "Sitename": "FresnoCDTC215"
+    },
+    {
+        "Sitename": "FresnoNorth646"
+    },
+    {
+        "Sitename": "Fullerton607"
+    },
+    {
+        "Sitename": "Garberville627"
+    },
+    {
+        "Sitename": "GardenaCDTC498"
+    },
+    {
+        "Sitename": "Gilroy623"
+    },
+    {
+        "Sitename": "Glendale510"
+    },
+    {
+        "Sitename": "Goleta670"
+    },
+    {
+        "Sitename": "GrassValley541"
+    },
+    {
+        "Sitename": "Hanford565"
+    },
+    {
+        "Sitename": "Hawthorne609"
+    },
+    {
+        "Sitename": "Hayward579"
+    },
+    {
+        "Sitename": "Hemet635"
+    },
+    {
+        "Sitename": "Hollister546"
+    },
+    {
+        "Sitename": "HollywoodCole508"
+    },
+    {
+        "Sitename": "HollywoodWest652"
+    },
+    {
+        "Sitename": "Indio578"
+    },
+    {
+        "Sitename": "Inglewood610"
+    },
+    {
+        "Sitename": "Jackson521"
+    },
+    {
+        "Sitename": "KingCity647"
+    },
+    {
+        "Sitename": "LagunaHills605"
+    },
+    {
+        "Sitename": "LakeIsabella687"
+    },
+    {
+        "Sitename": "Lakeport530"
+    },
+    {
+        "Sitename": "Lancaster595"
+    },
+    {
+        "Sitename": "LincolnPark617"
+    },
+    {
+        "Sitename": "Local Probe"
+    },
+    {
+        "Sitename": "Lodi622"
+    },
+    {
+        "Sitename": "Lompoc692"
+    },
+    {
+        "Sitename": "LongBeach507"
+    },
+    {
+        "Sitename": "LosAngeles502"
+    },
+    {
+        "Sitename": "LosBanos650"
+    },
+    {
+        "Sitename": "LosGatos640"
+    },
+    {
+        "Sitename": "Madera533"
+    },
+    {
+        "Sitename": "Manteca658"
+    },
+    {
+        "Sitename": "Mariposa566"
+    },
+    {
+        "Sitename": "MendotaTravelRun822"
+    },
+    {
+        "Sitename": "Merced536"
+    },
+    {
+        "Sitename": "Modesto557"
+    },
+    {
+        "Sitename": "Montebello511"
+    },
+    {
+        "Sitename": "MtShasta639"
+    },
+    {
+        "Sitename": "Napa540"
+    },
+    {
+        "Sitename": "Needles584"
+    },
+    {
+        "Sitename": "Newhall662"
+    },
+    {
+        "Sitename": "Norco586"
+    },
+    {
+        "Sitename": "Novato686"
+    },
+    {
+        "Sitename": "OaklandClaremont504"
+    },
+    {
+        "Sitename": "OaklandColiseum604"
+    },
+    {
+        "Sitename": "Oceanside596"
+    },
+    {
+        "Sitename": "Oroville522"
+    },
+    {
+        "Sitename": "Oxnard636"
+    },
+    {
+        "Sitename": "PacoimaDLPC693"
+    },
+    {
+        "Sitename": "PalmDesert683"
+    },
+    {
+        "Sitename": "PalmSprings659"
+    },
+    {
+        "Sitename": "Pasadena509"
+    },
+    {
+        "Sitename": "PasoRobles574"
+    },
+    {
+        "Sitename": "Petaluma634"
+    },
+    {
+        "Sitename": "Pittsburg592"
+    },
+    {
+        "Sitename": "Placerville525"
+    },
+    {
+        "Sitename": "Pleasanton631"
+    },
+    {
+        "Sitename": "Pomona532"
+    },
+    {
+        "Sitename": "Porterville573"
+    },
+    {
+        "Sitename": "Poway676"
+    },
+    {
+        "Sitename": "Quincy544"
+    },
+    {
+        "Sitename": "RanchoCucamonga612"
+    },
+    {
+        "Sitename": "RedBluff558"
+    },
+    {
+        "Sitename": "Redding551"
+    },
+    {
+        "Sitename": "Redlands626"
+    },
+    {
+        "Sitename": "RedwoodCity548"
+    },
+    {
+        "Sitename": "Reedley633"
+    },
+    {
+        "Sitename": "Ridgecrest577"
+    },
+    {
+        "Sitename": "Riverside545"
+    },
+    {
+        "Sitename": "RiversideEast656"
+    },
+    {
+        "Sitename": "Rocklin673"
+    },
+    {
+        "Sitename": "Roseville543"
+    },
+    {
+        "Sitename": "Sacramento501"
+    },
+    {
+        "Sitename": "SacramentoCapitol010"
+    },
+    {
+        "Sitename": "Salinas539"
+    },
+    {
+        "Sitename": "SanAndreas568"
+    },
+    {
+        "Sitename": "SanBernardino512"
+    },
+    {
+        "Sitename": "SanClemente648"
+    },
+    {
+        "Sitename": "SanDiego519"
+    },
+    {
+        "Sitename": "SanDiegoNormal506"
+    },
+    {
+        "Sitename": "SanFrancisco503"
+    },
+    {
+        "Sitename": "SanJose516"
+    },
+    {
+        "Sitename": "SanJoseDLPC645"
+    },
+    {
+        "Sitename": "SanLuisObispo547"
+    },
+    {
+        "Sitename": "SanMarcos689"
+    },
+    {
+        "Sitename": "SanMateo593"
+    },
+    {
+        "Sitename": "SanPedro619"
+    },
+    {
+        "Sitename": "SantaAna542"
+    },
+    {
+        "Sitename": "SantaBarbara549"
+    },
+    {
+        "Sitename": "SantaClara632"
+    },
+    {
+        "Sitename": "SantaMaria563"
+    },
+    {
+        "Sitename": "SantaMonica616"
+    },
+    {
+        "Sitename": "SantaPaula630"
+    },
+    {
+        "Sitename": "SantaRosa555"
+    },
+    {
+        "Sitename": "SantaTeresa668"
+    },
+    {
+        "Sitename": "SanYsidro677"
+    },
+    {
+        "Sitename": "Seaside567"
+    },
+    {
+        "Sitename": "Shafter660"
+    },
+    {
+        "Sitename": "SimiValley680"
+    },
+    {
+        "Sitename": "Sonora569"
+    },
+    {
+        "Sitename": "SouthLakeTahoe538"
+    },
+    {
+        "Sitename": "SouthSacramento602"
+    },
+    {
+        "Sitename": "Stockton517"
+    },
+    {
+        "Sitename": "Stoneridge664"
+    },
+    {
+        "Sitename": "Susanville531"
+    },
+    {
+        "Sitename": "Taft575"
+    },
+    {
+        "Sitename": "Temecula672"
+    },
+    {
+        "Sitename": "ThousandOaks663"
+    },
+    {
+        "Sitename": "Torrance608"
+    },
+    {
+        "Sitename": "Tracy642"
+    },
+    {
+        "Sitename": "Truckee513"
+    },
+    {
+        "Sitename": "Tulare594"
+    },
+    {
+        "Sitename": "Tulelake553"
+    },
+    {
+        "Sitename": "Turlock649"
+    },
+    {
+        "Sitename": "TwentyninePalms638"
+    },
+    {
+        "Sitename": "Ukiah535"
+    },
+    {
+        "Sitename": "Vacaville588"
+    },
+    {
+        "Sitename": "Vallejo554"
+    },
+    {
+        "Sitename": "Vannuys515"
+    },
+    {
+        "Sitename": "Ventura560"
+    },
+    {
+        "Sitename": "Victorville629"
+    },
+    {
+        "Sitename": "Visalia559"
+    },
+    {
+        "Sitename": "Watsonville583"
+    },
+    {
+        "Sitename": "Weaverville572"
+    },
+    {
+        "Sitename": "WestCovina618"
+    },
+    {
+        "Sitename": "Westminster611"
+    },
+    {
+        "Sitename": "Whittier591"
+    },
+    {
+        "Sitename": "Willows571"
+    },
+    {
+        "Sitename": "Winnetka637"
+    },
+    {
+        "Sitename": "Woodland561"
+    },
+    {
+        "Sitename": "WSacramento697"
+    },
+    {
+        "Sitename": "Yreka552"
+    },
+    {
+        "Sitename": "YubaCity562"
     }
 ]
