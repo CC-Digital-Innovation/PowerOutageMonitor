@@ -47,8 +47,8 @@ logger:
   logLevel: "DEBUG"
   fileName: "test"
   sysLog:
-    host: #hostName
-    port: #portNumber
+    host: "logs.papertrailapp.com"
+    port: 49638
 
 geocode:
   # more at: https://developers.arcgis.com/rest/geocode/api-reference/geocoding-find-address-candidates.htm
