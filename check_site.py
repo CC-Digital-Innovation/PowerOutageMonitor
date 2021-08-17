@@ -202,28 +202,31 @@ def check_which_api_to_call(site, provider_name):
 
 
 
+
+
+
 # @logger.catch
 
-def callCSV():
-    # set_log_level(config["logger"]["logLevel"])
-    site_data_obj = SiteData(Providers.GIS)
-    site_data_obj.read_json(site_data_obj.read_from_csv('site.csv'))
-    for site in site_data_obj.site_list:
-        print(site)
-        # check_which_api_to_call(site_data_obj.get_site_data(site) , site_data_obj.service_provider_tag)
+# def callCSV():
+#     # set_log_level(config["logger"]["logLevel"])
+#     site_data_obj = SiteData(Providers.GIS)
+#     site_data_obj.read_json(site_data_obj.read_from_csv('site.csv'))
+#     for site in site_data_obj.site_list:
+#         print(site)
+#         # check_which_api_to_call(site_data_obj.get_site_data(site) , site_data_obj.service_provider_tag)
+#
+#
+# def callJSON():
+#     site_data_obj = SiteData(Providers.PGE)
+#     site_data_obj.read_json_from_file('site.json')
+#     jsonoutput = []
+#     for site in site_data_obj.site_list:
+#         print(site)
+#         # jsonoutput.append(check_which_api_to_call(site_data_obj.get_site_data(site), site_data_obj.service_provider_tag))
+#     return  jsonoutput
 
-
-def callJSON():
-    site_data_obj = SiteData(Providers.PGE)
-    site_data_obj.read_json_from_file('site.json')
-    jsonoutput = []
-    for site in site_data_obj.site_list:
-        print(site)
-        # jsonoutput.append(check_which_api_to_call(site_data_obj.get_site_data(site), site_data_obj.service_provider_tag))
-    return  jsonoutput
-
-
-
-
-if __name__ == "__main__":
-    callCSV()
+#
+#
+#
+# if __name__ == "__main__":
+#     callCSV()

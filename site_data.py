@@ -8,6 +8,7 @@ class SiteData:
     def __init__(self,service_provider):
         self.site_list = {}
         self.service_provider_tag = service_provider
+        self.read_json_from_file('site.json')
 
     def read_from_csv(self,filename):
         """
@@ -125,14 +126,20 @@ class SiteData:
             return None
 
     def checkandAddforAddressExist(self, site, address,region):
-
         if site.get("Address") is None:
-
             site["Address"] = address
+            site["Region"] = region
             [long, lat] = get_long_lat(address)
+            site["Long"] = long
+            site["Lat"] = lat
             if long is not None and lat is not None:
-                self.site_list[site["Sitename"]]
+                self.site_list[site["Sitename"]] = site
+                return site
 
+            else:
+                return None
+        else:
+            return site
 
     def return_vals(self):
        """
@@ -142,6 +149,7 @@ class SiteData:
         Site_list data LIST
        """
        return self.site_list
+
 
 
 
