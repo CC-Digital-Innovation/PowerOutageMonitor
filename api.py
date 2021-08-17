@@ -1,13 +1,16 @@
 from flask import Flask
-from check_site import callJSON
-from flask import jsonify
+from flask import request
+from lookupApi import apiLookupRun
 
 
 app = Flask(__name__)
 
-@app.route('/<string:siteName>/')
-def welcome(siteName):
+@app.route('/lookup/',methods =['GET'])
+def welcome():
 
-    return jsonify(callJSON())
+    sitename = request.args.get('sitename', None)
+    address = request.args.get('address', None)
+    return apiLookupRun(sitename,address)
+
 if __name__ == '__main__':
     app.run()
