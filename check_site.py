@@ -87,11 +87,13 @@ def get_gis_power_status(site):
         logger.exception("Argument is missing required key: " + err.args[0])
         return None
         
-    url = config["gis-api"]["url"]
+    url = "https://services.arcgis.com/BLN4oKB0N1YSgvY8/arcgis/rest/services/Power_Outages_(View)/FeatureServer/0/query"
     headers = config["gis-api"]["headers"]
     params = config["gis-api"]["params"]
 
     params["geometry"] = str(site["Long"]) + "," + str(site["Lat"])
+    params["inSR"] = "4326"
+    params["geometryType"] = "esriGeometryPoint"
 
     response = requests.get(url, headers=headers, params=params)
 
@@ -152,7 +154,7 @@ def get_pge_power_status(site):
         logger.exception("Argument is missing required key: " + err.args[0])
         return None
 
-    url = config["pge-api"]["url"]
+    url = "https://apim.cloud.pge.com/cocoutage/outages/getOutagesRegions"
     headers = config["pge-api"]["headers"]
     params = config["pge-api"]["params"]
 

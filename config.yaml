@@ -1,5 +1,4 @@
 gis-api:
-  url: "https://services.arcgis.com/BLN4oKB0N1YSgvY8/arcgis/rest/services/Power_Outages_(View)/FeatureServer/0/query"
   headers: 
   params:
     # buffer distance for input geometry
@@ -8,17 +7,8 @@ gis-api:
     # response format
     f: "json"
 
-    # syntax depends on "geomtryType", check documentation: https://developers.arcgis.com/documentation/common-data-types/geometry-objects.htm
-    # geometry: ""
-
     # precision (decimal places) of RETURNED geometry
     geometryPrecision: "6"
-
-    # input geometry type, other options: esriGeometryMultipoint | esriGeometryPolyline | esriGeometryPolygon | esriGeometryEnvelope
-    geometryType: "esriGeometryPoint"
-
-    # spatial relation that allows to search with longitude, latitude values
-    inSR: "4326"
 
     # returned fields 
     outFields: "OBJECTID, UtilityCompany, StartDate, EstimatedRestoreDate, Cause, ImpactedCustomers, County, OutageStatus, OutageType, GlobalID, IncidentId"
@@ -32,11 +22,14 @@ gis-api:
     where: "1=1"
 
 pge-api:
-  url: "https://apim.cloud.pge.com/cocoutage/outages/getOutagesRegions"
   headers: 
   params:
     regionType: "city"
     expand: "true"
+
+sce-api:
+  # wait time, in seconds, for HTML elements to appear
+  maxWaitTime: 5
 
 date-time:
   # timezone to return, find more at: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List
@@ -52,7 +45,6 @@ logger:
 
 geocode:
   # more at: https://developers.arcgis.com/rest/geocode/api-reference/geocoding-find-address-candidates.htm
-  url: "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates"
   headers:
   params:
     f: "json"
