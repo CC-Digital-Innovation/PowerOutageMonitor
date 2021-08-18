@@ -49,3 +49,6 @@ geocode:
   params:
     f: "json"
     outFields: "location"
+    
+  # minimum accuracy of address (inclusive)
+  minScore: 97
