@@ -24,7 +24,7 @@ def get_long_lat(address):
         if address could not be found or too many results.
     """
 
-    url = config["geocode"]["url"]
+    url = "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates"
     headers = config["geocode"]["headers"]
     params = config["geocode"]["params"]
 
