@@ -127,15 +127,17 @@ class SiteData:
 
     def checkandAddforAddressExist(self, site, address,region):
         if site.get("Address") is None:
-            site["Address"] = address
-            site["Region"] = region
-            [long, lat] = get_long_lat(address)
-            site["Long"] = long
-            site["Lat"] = lat
-            if long is not None and lat is not None:
-                self.site_list[site["Sitename"]] = site
-                return site
-
+            if address is not None:
+                site["Address"] = address
+                site["Region"] = region
+                [long, lat] = get_long_lat(address)
+                site["Long"] = long
+                site["Lat"] = lat
+                if long is not None and lat is not None:
+                    self.site_list[site["Sitename"]] = site
+                    return site
+                else:
+                    return None
             else:
                 return None
         else:
