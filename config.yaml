@@ -1,8 +1,12 @@
+web:
+  port: 8000
+
+
 gis-api:
   headers: 
   params:
     # buffer distance for input geometry
-    distance: "1"
+    distance: "30"
 
     # response format
     f: "json"
@@ -21,20 +25,24 @@ gis-api:
 
     where: "1=1"
 
+
 pge-api:
   headers: 
   params:
     regionType: "city"
     expand: "true"
 
+
 sce-api:
   # wait time, in seconds, for HTML elements to appear
   maxWaitTime: 5
+
 
 date-time:
   # timezone to return, find more at: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List
   timezone: "America/Los_Angeles"
   timeFormat: "%m/%d/%Y %I:%M:%S %p %Z"
+
 
 logger:
   logLevel: "DEBUG"
@@ -42,6 +50,7 @@ logger:
   sysLog:
     host: "logs.papertrailapp.com"
     port: 49638
+
 
 geocode:
   # more at: https://developers.arcgis.com/rest/geocode/api-reference/geocoding-find-address-candidates.htm
@@ -52,3 +61,15 @@ geocode:
     
   # minimum accuracy of address (inclusive)
   minScore: 97
+
+
+opsgenie:
+  alertApi:
+    headers:
+      Authorization: "GenieKey 012e1678-4b6e-4aa1-812f-49cbeba27b5c"
+    params:
+      identifierType: "id"  # defaults to id, other options include: tiny | alias
+
+
+sqlite3:
+  dbName: "sites/site.db"
