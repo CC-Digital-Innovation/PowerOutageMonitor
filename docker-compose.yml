@@ -11,9 +11,8 @@ services:
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
   power-outage-monitor:
-    build: ./
     restart: always
-    image: local/power-outage-monitor
+    image: ccfs/power-outage-monitor
     networks:
      - nginx-proxy
     environment:

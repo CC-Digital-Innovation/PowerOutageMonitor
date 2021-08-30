@@ -43,6 +43,7 @@ def set_log_level(log_level):
 
 
 set_log_level(config["logger"]["logLevel"])
+logger.info("test watchtower")
 app = FastAPI()
 
 
