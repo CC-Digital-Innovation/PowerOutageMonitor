@@ -130,3 +130,6 @@ dmypy.json
 
 # Codeanywhere files
 .theia/
+
+# IntelliJ
+.idea/
