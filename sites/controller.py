@@ -1,12 +1,13 @@
 import csv
 import json
-import os.path
+import os
 import sqlite3
 
 import yaml
 from loguru import logger
 
-config = yaml.safe_load(open("config.yaml"))
+config = yaml.safe_load(open(os.path.join(os.path.dirname(__file__), os.pardir, "config.yaml")))
+
 
 @logger.catch
 def init_db():
@@ -68,14 +69,23 @@ def query_to_site(query):
 @logger.catch
 def add_site(site_name, street, city, state, longitude, latitude):
     con = sqlite3.connect(config["sqlite3"]["dbName"])
-    con.execute("INSERT INTO sites(name, street, city, state, longitude, latitude) VALUES (?, ?, ?, ?, ?, ?)", (site_name, street, city, state, longitude, latitude))
-    con.commit()
-    con.close()
+    logger.info("Adding site " + site_name + " to db.")
+    try:
+        with con:
+            con.execute("INSERT INTO sites(name, street, city, state, longitude, latitude) VALUES (?, ?, ?, ?, ?, ?)", (site_name, street, city, state, longitude, latitude))
+    except sqlite3.IntegrityError:
+        logger.error("Site '" + site_name + "' already exists.")
+        return None
+    finally:
+        con.close()
+    logger.info("Successfully added " + site_name + " to db.")
+    return get_site(site_name)
 
 
 @logger.catch
 def get_site(site_name):
     con = sqlite3.connect(config["sqlite3"]["dbName"])
+    logger.info("Getting site " + site_name + " from db.")
     query = con.execute("SELECT * FROM sites WHERE name=?", (site_name,)).fetchone()
     con.close()
     return query_to_site(query)
@@ -84,6 +94,7 @@ def get_site(site_name):
 @logger.catch
 def get_all():
     con = sqlite3.connect(config["sqlite3"]["dbName"])
+    logger.info("Getting all sites from db.")
     query = con.execute("SELECT * FROM sites").fetchall()
     con.close()
     return [query_to_site(row) for row in query]

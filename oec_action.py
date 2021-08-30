@@ -1,12 +1,15 @@
 import argparse
 import json
+import os
+import logging.handlers
 import re
+import sys
 
 import requests
 import yaml
 from loguru import logger
 
-config = yaml.safe_load(open("config.yaml"))
+config = yaml.safe_load(open(os.path.join(os.path.dirname(__file__), os.pardir, "conf/config.yaml")))
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-payload', '--queuePayload', required=True)
@@ -15,9 +18,37 @@ parser.add_argument('-apiKey', '--apiKey', required=True)
 parser.add_argument('-opsgenieUrl', '--opsgenieUrl', required=True)
 
 @logger.catch
+def set_log_level(log_level):
+    if log_level == "DEBUG":
+        log_format = "<green>{time:YYYY-MM-DD HH:mm:ss.SSS}</green> | <level>{level: <8}</level>  | <cyan>{name}</cyan>:<cyan>{function}</cyan>:<cyan>{line}</cyan> - <level>{message}</level>"
+    else:
+        log_format = "<green>{time:YYYY-MM-DD HH:mm:ss.SSS}</green> | <level>{level: <8}</level>  | <cyan>{name}</cyan>:<cyan>{function}</cyan>:<cyan>{line}</cyan> - <level>{message}</level>"
+
+    # Remove default logger
+    logger.remove()
+
+    # Log to console
+    logger.add(sys.stderr, colorize=True, format=log_format, level=log_level)
+
+    # Log to log file
+    # logger.add(config["logger"]["fileName"] +
+    #            "\snowmail_{time:YYYY_MM_DD}.log", level=log_level, rotation="100 MB")
+
+    # Log to syslog
+    handler = logging.handlers.SysLogHandler(
+        address=(config["logger"]["sysLog"]["host"], config["logger"]["sysLog"]["port"]))
+    logger.add(handler)
+
+    if log_level == "QUIET":
+        logger.disable("")
+    else:
+        logger.enable("")
+
+
+@logger.catch
 def parse_sitename(description):
     sitename_pattern = re.compile("Group:\s*(?P<sitename>.*)\n")
-    
+
     sitename_match = sitename_pattern.search(description)
 
     if sitename_match:
@@ -30,7 +61,7 @@ def parse_location(description):
     location_pattern = re.compile("Location:\s*(?P<location>.*)\n")
     location_match = location_pattern.search(description)
 
-    if location_match: 
+    if location_match:
         location_match.group("location").strip()
     return None
 
@@ -45,6 +76,7 @@ def update_alert_description(id, description):
         "description": description
     }
 
+    logger.info("POSTing alert api to update description.")
     request = requests.post(url, json=payload, headers=headers, params=params)
 
     request.raise_for_status()
@@ -61,6 +93,7 @@ def add_alert_details(id, details):
         "details": details
     }
 
+    logger.info("POSTing alert api to update details")
     request = requests.post(url, json=payload, headers=headers, params=params)
 
     request.raise_for_status()
@@ -75,6 +108,7 @@ def close_alert(id):
 
     payload = {}
 
+    logger.info("POSTing alert api to close alert")
     request = requests.post(url, json=payload, headers=headers, params=params)
 
     request.raise_for_status()
@@ -83,17 +117,19 @@ def close_alert(id):
 
 @logger.catch
 def check_site(site_name):
-    url = "http://127.0.0.1:" + str(config["web"]["port"]) + "/checkSite"
+    url = "http://power-api.quokka.ninja/checkSite"
     params = {
         "siteName": site_name
     }
 
+    logger.info("GETting site " + site_name + " power status.")
     request = requests.get(url, params=params)
     return request.json()
 
 
 @logger.catch
 def main():
+    set_log_level(config["logger"]["logLevel"])
     args = vars(parser.parse_args())
     raw_message = args['queuePayload']
     raw_message = raw_message.strip()
