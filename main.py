@@ -7,11 +7,12 @@ import yaml
 from fastapi import FastAPI, Response, status, HTTPException
 from loguru import logger
 
-import controller
+from sites import controller
 import geocode
 from check_site import get_site_status
 
 config = yaml.safe_load(open("config.yaml"))
+
 
 @logger.catch
 def set_log_level(log_level):
@@ -20,8 +21,11 @@ def set_log_level(log_level):
     else:
         log_format = "<green>{time:YYYY-MM-DD HH:mm:ss.SSS}</green> | <level>{level: <8}</level>  | <cyan>{name}</cyan>:<cyan>{function}</cyan>:<cyan>{line}</cyan> - <level>{message}</level>"
 
+    # Remove default handler
+    logger.remove()
+
     # Log to console
-    # logger.add(sys.stderr, colorize=True, format=log_format, level=log_level)
+    logger.add(sys.stderr, colorize=True, format=log_format, level=log_level)
 
     # Log to log file
     # logger.add(config["logger"]["fileName"] +
@@ -38,7 +42,7 @@ def set_log_level(log_level):
         logger.enable("")
 
 
-set_log_level("DEBUG")
+set_log_level(config["logger"]["logLevel"])
 app = FastAPI()
 
 
@@ -47,15 +51,23 @@ app = FastAPI()
 def check_site(siteName: str, response: Response, provider: Optional[str] = None):
     site = controller.get_site(siteName)
     if site:
+        logger.info("Found site '" + siteName + ".' Getting power status...")
         return get_site_status(site, provider)
+    logger.info("Could not find site '" + siteName + "'")
     response.status_code = status.HTTP_404_NOT_FOUND
-    return None
+    return {"error": {"details": "Could not find site '" + siteName + "'"}}
 
 
 @logger.catch
 @app.get("/sites/{siteName}")
 def get_site(siteName: str):
-    return controller.get_site(siteName)
+    site = controller.get_site(siteName)
+    if site:
+        logger.info("Found site '" + siteName + ".' Sending response...")
+        return site
+    logger.info("Could not find site '" + siteName + "'")
+    response.status_code = status.HTTP_404_NOT_FOUND
+    return {"error": {"details": "Could not find site '" + siteName + "'"}}
 
 
 @logger.catch
@@ -73,13 +85,4 @@ def add_site(siteName: str, street: str, city: str, state: str, response: Respon
         return controller.add_site(siteName, street, city, state, longitude, latitude)
     logger.error("Could not get longitude and latitude, cannot add to db.")
     response.status_code = status.HTTP_422_UNPROCESSABLE_ENTITY
-    return None
-
-
-def main():
-    set_log_level("DEBUG")
-    uvicorn.run(app, host="0.0.0.0", port=config["web"]["port"])
-
-
-if __name__ == "__main__":
-    main()
+    return {"error": {"details": "Could not find longitude or latitude based on address. Check street, city, and state inputs."}}
