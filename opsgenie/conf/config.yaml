@@ -1,0 +1,14 @@
+---
+opsgenie:
+  alertApi:
+    headers:
+      Authorization: "GenieKey 012e1678-4b6e-4aa1-812f-49cbeba27b5c"
+    params:
+      identifierType: "id"  # defaults to id, other options include: tiny | alias
+
+logger:
+  logLevel: "DEBUG"
+  fileName: "test"
+  sysLog:
+    host: "logs.papertrailapp.com"
+    port: 49638

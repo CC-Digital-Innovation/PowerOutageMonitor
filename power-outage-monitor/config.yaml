@@ -63,13 +63,6 @@ geocode:
   minScore: 97
 
 
-opsgenie:
-  alertApi:
-    headers:
-      Authorization: "GenieKey #########################"
-    params:
-      identifierType: "id"  # defaults to id, other options include: tiny | alias
-
-
 sqlite3:
   dbName: "sites/site.db"
+

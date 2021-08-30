@@ -1,0 +1,20 @@
+---
+appName: vitu-oec
+apiKey: 8cd3f663-1298-4cb3-8056-a8b91af143a4
+baseUrl: https://api.opsgenie.com
+logLevel: debug
+actionMappings:
+  Test OEC:
+    sourceType: local
+    filepath: "/home/opsgenie/scripts/oec_action.py"
+    stderr: "/home/opsgenie/output/oec-err.log"
+pollerConf:
+  pollingWaitIntervalInMillis: 100
+  visibilityTimeoutInSeconds: 30
+  maxNumberOfMessages: 10
+poolConf:
+  maxNumberOfWorker: 12
+  minNumberOfWorker: 4
+  queueSize: 0
+  keepAliveTimeInMillis: 6000
+  monitoringPeriodInMillis: 15000
