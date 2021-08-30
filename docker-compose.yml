@@ -19,14 +19,6 @@ services:
      - VIRTUAL_HOST=power-api.quokka.ninja
     volumes:
      - ./power-outage-monitor/sites:/home/sites
-  oec:
-    restart: always
-    image: oec:latest
-    volumes:
-     - /home/jle/src/PowerOutageMonitor/opsgenie:/home/opsgenie
-    environment:
-     - OEC_CONF_SOURCE_TYPE=local
-     - OEC_CONF_LOCAL_FILEPATH=/home/opsgenie/conf/oec-config.yaml
 networks:
   nginx-proxy:
     external:
