@@ -14,7 +14,7 @@ services:
     restart: always
     image: ccfs/power-outage-monitor
     labels:
-     - "com.centurylinklabs.watchtower.enable=true"
+          com.centurylinklabs.watchtower.enable: true
     networks:
      - nginx-proxy
     environment:
