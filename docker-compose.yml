@@ -18,7 +18,7 @@ services:
     environment:
      - VIRTUAL_HOST=power-api.quokka.ninja
     volumes:
-     - ./power-outage-monitor/sites:/home/sites
+     - ./power-outage-monitor/sites:/app/sites
 networks:
   nginx-proxy:
     external:
