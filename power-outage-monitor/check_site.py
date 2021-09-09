@@ -178,18 +178,18 @@ def get_site_status(site, provider):
         if provider.lower() == "pge":
             logger.info("PGE API USED")
             payload.update(get_pge_power_status(site))
-            payload["Time"] = datetime.utcnow().strftime(config["date-time"]["timeFormat"])
+            payload["Time"] = datetime.now(pytz.timezone(config["date-time"]["timezone"])).strftime(config["date-time"]["timeFormat"])
             logger.info(json.dumps(payload, indent=4, sort_keys=True))
             return payload
         if provider.lower() == "gis":
             logger.info("GIS API USED")
             payload.update(get_gis_power_status(site))
-            payload["Time"] = datetime.utcnow().strftime(config["date-time"]["timeFormat"])
+            payload["Time"] = datetime.now(pytz.timezone(config["date-time"]["timezone"])).strftime(config["date-time"]["timeFormat"])
             logger.info(json.dumps(payload, indent=4, sort_keys=True))
             return payload
     else:
         logger.info("GIS API USED")
         payload.update(get_gis_power_status(site))
-        payload["Time"] = datetime.utcnow().strftime(config["date-time"]["timeFormat"])
+        payload["Time"] = datetime.now(pytz.timezone(config["date-time"]["timezone"])).strftime(config["date-time"]["timeFormat"])
         logger.info(json.dumps(payload, indent=4, sort_keys=True))
         return payload
