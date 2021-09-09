@@ -1,19 +1,11 @@
 [
     {
-        "name": "Agoura Hills - Lab",
-        "street": null,
-        "city": null,
-        "state": null,
-        "longitude": null,
-        "latitude": null
-    },
-    {
         "name": "Alturas537",
         "street": "903 W C St",
         "city": "Alturas",
         "state": "CA",
-        "longitude": -120.54976041217726,
-        "latitude": 41.49162265011788
+        "longitude": -120.55037899999996,
+        "latitude": 41.492642000000046
     },
     {
         "name": "Anaheim698",
@@ -28,112 +20,112 @@
         "street": "14400 Van Nuys Blvd",
         "city": "Arleta",
         "state": "CA",
-        "longitude": -118.44528699221335,
-        "latitude": 34.24789499689261
+        "longitude": -118.44528899999995,
+        "latitude": 34.24787500000008
     },
     {
         "name": "Arvin661",
         "street": "317 Campus Dr",
         "city": "Arvin",
         "state": "CA",
-        "longitude": -118.83331734504222,
-        "latitude": 35.211020758600085
+        "longitude": -118.83371599999998,
+        "latitude": 35.21173600000003
     },
     {
         "name": "Auburn570",
         "street": "11722 Enterprise Dr",
         "city": "Auburn",
         "state": "CA",
-        "longitude": -121.08411892990134,
-        "latitude": 38.90768005183836
+        "longitude": -121.08435399999996,
+        "latitude": 38.90719300000006
     },
     {
         "name": "Bakersfield529",
         "street": "3120 F St",
         "city": "Bakersfield",
         "state": "CA",
-        "longitude": -119.02239896311536,
-        "latitude": 35.3882279877496
+        "longitude": -119.02246299999996,
+        "latitude": 35.388288000000045
     },
     {
         "name": "BakersfieldSW679",
         "street": "7000 Schirra Ct",
         "city": "Bakersfield",
         "state": "CA",
-        "longitude": -119.0796760279125,
-        "latitude": 35.31701999032731
+        "longitude": -119.07966599999997,
+        "latitude": 35.31703100000004
     },
     {
         "name": "Banning641",
         "street": "1034 W. Ramsey St.  #B",
         "city": "Banning",
         "state": "CA",
-        "longitude": -116.88797003444655,
-        "latitude": 33.92501901552315
+        "longitude": -116.888038,
+        "latitude": 33.92503100000005
     },
     {
         "name": "Barstow582",
         "street": "528 East Virginia Way",
         "city": "Barstow",
         "state": "CA",
-        "longitude": -117.02022800083283,
-        "latitude": 34.88756999601031
+        "longitude": -117.01981599999999,
+        "latitude": 34.88694300000003
     },
     {
         "name": "Bellflower606",
         "street": "9520 Artesia Blvd",
         "city": "Bellflower",
         "state": "CA",
-        "longitude": -118.13092488708483,
-        "latitude": 33.87468274789813
+        "longitude": -118.13122299999998,
+        "latitude": 33.87356200000005
     },
     {
         "name": "BellGardens576",
         "street": "6801 S. Garfield Ave.",
         "city": "Bell Gardens",
         "state": "CA",
-        "longitude": -118.14918103262798,
-        "latitude": 33.970070829227744
+        "longitude": -118.14962699999995,
+        "latitude": 33.969846000000075
     },
     {
         "name": "Bishop585",
         "street": "1115 West Line Street",
         "city": "Bishop",
         "state": "CA",
-        "longitude": -118.41167899706014,
-        "latitude": 37.36172600992104
+        "longitude": -118.41165999999998,
+        "latitude": 37.36170200000004
     },
     {
         "name": "Blythe528",
         "street": "430-B  S. Broadway",
         "city": "Blythe",
         "state": "CA",
-        "longitude": -114.59628696301779,
-        "latitude": 33.60421298705238
+        "longitude": -114.59620299999995,
+        "latitude": 33.60419600000006
     },
     {
         "name": "Brawley597",
         "street": "1175 E Main St",
         "city": "Brawley",
         "state": "CA",
-        "longitude": -115.52264425776723,
-        "latitude": 32.97869661687873
+        "longitude": -115.52251199999995,
+        "latitude": 32.978864000000044
     },
     {
         "name": "Capitola550",
         "street": "4200 Capitola Rd",
         "city": "Capitola",
         "state": "CA",
-        "longitude": -121.96286195980518,
-        "latitude": 36.97331201144182
+        "longitude": -121.96280699999994,
+        "latitude": 36.973272000000065
     },
     {
         "name": "Carmichael625",
         "street": "5209 North Ave",
         "city": "Carmichael",
         "state": "CA",
-        "longitude": -121.34299833025521,
-        "latitude": 38.6246494127036
+        "longitude": -121.34327899999994,
+        "latitude": 38.62517600000007
     },
     {
         "name": "Chico520",
@@ -148,8 +140,8 @@
         "street": "30 N Glover Ave",
         "city": "Chula Vista",
         "state": "CA",
-        "longitude": -117.08713997951111,
-        "latitude": 32.65158601228687
+        "longitude": -117.08708999999999,
+        "latitude": 32.651602000000025
     },
     {
         "name": "Clearlake830",
@@ -164,16 +156,16 @@
         "street": "2103 Shaw Avenue",
         "city": "Clovis",
         "state": "CA",
-        "longitude": -119.67648396253422,
-        "latitude": 36.809511979487496
+        "longitude": -119.67652499999997,
+        "latitude": 36.80956500000008
     },
     {
         "name": "Coalinga603",
         "street": "406 E. Elm St.",
         "city": "Coalinga",
         "state": "CA",
-        "longitude": -120.35660097392118,
-        "latitude": 36.14318701259009
+        "longitude": -120.35662499999995,
+        "latitude": 36.143184000000076
     },
     {
         "name": "Colusa564",
@@ -188,40 +180,40 @@
         "street": "2111 S Santa Fe Ave",
         "city": "Compton",
         "state": "CA",
-        "longitude": -118.21503679997575,
-        "latitude": 33.8768069422609
+        "longitude": -118.21544799999998,
+        "latitude": 33.87640000000005
     },
     {
         "name": "Concord523",
         "street": "2070 Diamond Blvd",
         "city": "Concord",
         "state": "CA",
-        "longitude": -122.05627500175325,
-        "latitude": 37.974862017657074
+        "longitude": -122.05629899999997,
+        "latitude": 37.97484000000003
     },
     {
         "name": "CorteMadera534",
         "street": "75 Tamal Vista Blvd",
         "city": "Corte Madera",
         "state": "CA",
-        "longitude": -122.5175159622531,
-        "latitude": 37.93476399869414
+        "longitude": -122.51761399999998,
+        "latitude": 37.93467100000004
     },
     {
         "name": "CostaMesa628",
         "street": "650 W 19th St",
         "city": "Costa Mesa",
         "state": "CA",
-        "longitude": -117.92552500866611,
-        "latitude": 33.64413800353377
+        "longitude": -117.92550599999998,
+        "latitude": 33.64412900000008
     },
     {
         "name": "CrescentCity524",
         "street": "1475 Parkway Dr",
         "city": "Crescent City",
         "state": "CA",
-        "longitude": -124.18469502785462,
-        "latitude": 41.77194499958864
+        "longitude": -124.18451699999997,
+        "latitude": 41.77168000000006
     },
     {
         "name": "CulverCity514",
@@ -236,128 +228,128 @@
         "street": "1500 Sullivan Ave",
         "city": "Daly City",
         "state": "CA",
-        "longitude": -122.47282197814101,
-        "latitude": 37.6892920013933
+        "longitude": -122.47280799999999,
+        "latitude": 37.689265000000034
     },
     {
         "name": "Davis598",
         "street": "505 Pole Line Rd",
         "city": "Davis",
         "state": "CA",
-        "longitude": -121.7272340048697,
-        "latitude": 38.54935300934565
+        "longitude": -121.72721599999994,
+        "latitude": 38.549344000000076
     },
     {
         "name": "Delano615",
         "street": "631 Jefferson St",
         "city": "Delano",
         "state": "CA",
-        "longitude": -119.24388396518486,
-        "latitude": 35.76505299926039
+        "longitude": -119.24388499999998,
+        "latitude": 35.76507000000004
     },
     {
         "name": "ElCajon669",
         "street": "1450 Graves Ave",
         "city": "El Cajon",
         "state": "CA",
-        "longitude": -116.95987796269353,
-        "latitude": 32.81730298549742
+        "longitude": -116.95986599999998,
+        "latitude": 32.81733600000007
     },
     {
         "name": "ElCentro527",
         "street": "233 N Imperial Ave",
         "city": "El Centro",
         "state": "CA",
-        "longitude": -115.56965600492882,
-        "latitude": 32.79475801288838
+        "longitude": -115.56960799999996,
+        "latitude": 32.79474400000004
     },
     {
         "name": "ElCerrito556",
         "street": "6400 Manila Ave",
         "city": "El Cerrito",
         "state": "CA",
-        "longitude": -122.3106509938134,
-        "latitude": 37.916078260865596
+        "longitude": -122.31018499999999,
+        "latitude": 37.91608000000008
     },
     {
         "name": "ElMonte685",
         "street": "4000 Arden Drive",
         "city": "El Monte",
         "state": "CA",
-        "longitude": -118.0447119837835,
-        "latitude": 34.08050298415148
+        "longitude": -118.04475799999994,
+        "latitude": 34.080543000000034
     },
     {
         "name": "Eureka526",
         "street": "3300 Broadway Street Suite 906",
         "city": "Eureka",
         "state": "CA",
-        "longitude": -124.18806360489002,
-        "latitude": 40.77881016363597
+        "longitude": -124.19036597208603,
+        "latitude": 40.78079098406283
     },
     {
         "name": "Fairfield621",
         "street": "160 Serrano Drive",
         "city": "Fairfield",
         "state": "CA",
-        "longitude": -122.07296697519392,
-        "latitude": 38.24665398720961
+        "longitude": -122.07293899999996,
+        "latitude": 38.24670000000003
     },
     {
         "name": "FallRiverMills643",
         "street": "43467  Hwy 299 E.",
         "city": "Fall River Mills",
         "state": "CA",
-        "longitude": -121.42810701459092,
-        "latitude": 41.019638008912864
+        "longitude": -121.42816699999997,
+        "latitude": 41.01972900000004
     },
     {
         "name": "Folsom655",
         "street": "323 E. Bidwell  #A",
         "city": "Folsom",
         "state": "Ca",
-        "longitude": -121.16779188245366,
-        "latitude": 38.67399090301659
+        "longitude": -121.16846999999996,
+        "latitude": 38.673042000000066
     },
     {
         "name": "Fontana657",
         "street": "8026 Hemlock Ave",
         "city": "Fontana",
         "state": "CA",
-        "longitude": -117.47698799589509,
-        "latitude": 34.1078530084844
+        "longitude": -117.47703099999995,
+        "latitude": 34.10782500000005
     },
     {
         "name": "FontanaCDTC699",
         "street": "10207 Poplar Ave",
         "city": "Fontana",
         "state": "CA",
-        "longitude": -117.46187701703137,
-        "latitude": 34.06776299423899
+        "longitude": -117.46184699999998,
+        "latitude": 34.06780500000008
     },
     {
         "name": "FontanaDLPC688",
         "street": "16499 Merrill Avenue",
         "city": "Fontana",
         "state": "CA",
-        "longitude": -117.44451824473295,
-        "latitude": 34.09205200899718
+        "longitude": -117.44400699999994,
+        "latitude": 34.091770000000054
     },
     {
         "name": "FortBragg590",
         "street": "410 S Franklin St",
         "city": "Fort Bragg",
         "state": "CA",
-        "longitude": -123.80418797200741,
-        "latitude": 39.43787598490616
+        "longitude": -123.804194,
+        "latitude": 39.43792300000007
     },
     {
         "name": "Fremont644",
         "street": "4287 Central Ave",
         "city": "Fremont",
         "state": "CA",
-        "longitude": -122.0072059994597,
-        "latitude": 37.553344991781444
+        "longitude": -122.00717199999997,
+        "latitude": 37.55330500000008
     },
     {
         "name": "Fresno505",
@@ -380,16 +372,16 @@
         "street": "6420 N Blackstone Ave",
         "city": "Fresno",
         "state": "CA",
-        "longitude": -119.78847800744161,
-        "latitude": 36.83097597995352
+        "longitude": -119.78857099999999,
+        "latitude": 36.83048500000007
     },
     {
         "name": "Fullerton607",
         "street": "909 W Valencia Dr",
         "city": "Fullerton",
         "state": "CA",
-        "longitude": -117.94078501776829,
-        "latitude": 33.86704101407297
+        "longitude": -117.94077499999997,
+        "latitude": 33.86705200000006
     },
     {
         "name": "Garberville627",
@@ -412,144 +404,144 @@
         "street": "6984 Automall Pkwy.",
         "city": "Suite A Gilroy",
         "state": "CA",
-        "longitude": -121.55860302111068,
-        "latitude": 37.0017130007044
+        "longitude": -121.55880899999994,
+        "latitude": 37.00164200000006
     },
     {
         "name": "Glendale510",
         "street": "1335 W Glenoaks Blvd",
         "city": "Glendale",
         "state": "CA",
-        "longitude": -118.28341903085048,
-        "latitude": 34.167006990950085
+        "longitude": -118.28337499999998,
+        "latitude": 34.16699200000005
     },
     {
         "name": "Goleta670",
         "street": "7127 Hollister Ave.  #24/26",
         "city": "Goleta",
         "state": "CA",
-        "longitude": -119.87759795072459,
-        "latitude": 34.429904884149565
+        "longitude": -119.87674699999997,
+        "latitude": 34.428874000000064
     },
     {
         "name": "GrassValley541",
         "street": "890 Sutton Way",
         "city": "Grass Valley",
         "state": "CA",
-        "longitude": -121.03451396386815,
-        "latitude": 39.235677993500445
+        "longitude": -121.03493599999996,
+        "latitude": 39.23570300000006
     },
     {
         "name": "Hanford565",
         "street": "701 W Hanford Armona Rd",
         "city": "Hanford",
         "state": "CA",
-        "longitude": -119.65556298366542,
-        "latitude": 36.31294397931218
+        "longitude": -119.65555199999994,
+        "latitude": 36.31297600000005
     },
     {
         "name": "Hawthorne609",
         "street": "3700 W El Segundo Blvd",
         "city": "Hawthorne",
         "state": "CA",
-        "longitude": -118.33809301179744,
-        "latitude": 33.915484013927866
+        "longitude": -118.33806599999997,
+        "latitude": 33.91548300000005
     },
     {
         "name": "Hayward579",
         "street": "150 Jackson St",
         "city": "Hayward",
         "state": "CA",
-        "longitude": -122.08642828555297,
-        "latitude": 37.65886516760744
+        "longitude": -122.08745999999996,
+        "latitude": 37.65936400000004
     },
     {
         "name": "Hemet635",
         "street": "1200 S State St",
         "city": "Hemet",
         "state": "CA",
-        "longitude": -116.96981403835575,
-        "latitude": 33.727838012263106
+        "longitude": -116.96986299999998,
+        "latitude": 33.72785300000004
     },
     {
         "name": "Hollister546",
         "street": "80 N Sally St",
         "city": "Hollister",
         "state": "CA",
-        "longitude": -121.40012101335456,
-        "latitude": 36.8582340128991
+        "longitude": -121.40018699999996,
+        "latitude": 36.858156000000065
     },
     {
         "name": "HollywoodCole508",
         "street": "803 Cole Ave Central LA",
         "city": "Los Angeles",
         "state": "CA",
-        "longitude": -118.33016901199248,
-        "latitude": 34.08544499617324
+        "longitude": -118.33022599999998,
+        "latitude": 34.085563000000036
     },
     {
         "name": "HollywoodWest652",
         "street": "936 N Formosa Ave",
         "city": "West Hollywood",
         "state": "CA",
-        "longitude": -118.3457949749873,
-        "latitude": 34.088316007558404
+        "longitude": -118.34576399999997,
+        "latitude": 34.088339000000076
     },
     {
         "name": "Indio578",
         "street": "44480 Jackson St",
         "city": "Indio",
         "state": "CA",
-        "longitude": -116.2157610134295,
-        "latitude": 33.72623597910918
+        "longitude": -116.21578299999999,
+        "latitude": 33.726222000000064
     },
     {
         "name": "Inglewood610",
         "street": "621 N La Brea Ave",
         "city": "Inglewood",
         "state": "CA",
-        "longitude": -118.35725203079974,
-        "latitude": 33.96996801903936
+        "longitude": -118.35718499999996,
+        "latitude": 33.96996000000007
     },
     {
         "name": "Jackson521",
         "street": "201 Clinton Rd",
         "city": "Jackson",
         "state": "CA",
-        "longitude": -120.76432800887355,
-        "latitude": 38.34235201978234
+        "longitude": -120.76431799999995,
+        "latitude": 38.34242900000004
     },
     {
         "name": "KingCity647",
         "street": "101 E San Antonio Dr.",
         "city": "King City",
         "state": "CA",
-        "longitude": -121.12728696368974,
-        "latitude": 36.22239800925479
+        "longitude": -121.12731199999996,
+        "latitude": 36.22242200000005
     },
     {
         "name": "LagunaHills605",
         "street": "23535 Moulton Pkwy",
         "city": "Laguna Hills",
         "state": "CA",
-        "longitude": -117.7316565128338,
-        "latitude": 33.62058879186089
+        "longitude": -117.73279899999994,
+        "latitude": 33.620580000000075
     },
     {
         "name": "LakeIsabella687",
         "street": "5520 Lake Isabella Rd.  #G-1",
         "city": "Lake Isabella",
         "state": "CA",
-        "longitude": -118.477677504638,
-        "latitude": 35.61762340718606
+        "longitude": -118.47676099999995,
+        "latitude": 35.61687400000005
     },
     {
         "name": "Lakeport530",
         "street": "965 Parallel Dr",
         "city": "Lakeport",
         "state": "CA",
-        "longitude": -122.9271929631602,
-        "latitude": 39.035817002428615
+        "longitude": -122.92722699999996,
+        "latitude": 39.03587600000003
     },
     {
         "name": "Lancaster595",
@@ -564,152 +556,152 @@
         "street": "3529 N Mission Rd",
         "city": "Los Angeles",
         "state": "CA",
-        "longitude": -118.20294399392357,
-        "latitude": 34.06763220529874
+        "longitude": -118.20267899999999,
+        "latitude": 34.06913300000008
     },
     {
         "name": "Lodi622",
         "street": "1222 Pixley Parkway",
         "city": "Lodi",
         "state": "CA",
-        "longitude": -121.2515159888433,
-        "latitude": 38.11869597906187
+        "longitude": -121.25152399999996,
+        "latitude": 38.118742000000054
     },
     {
         "name": "Lompoc692",
         "street": "1601 N H St",
         "city": "Lompoc",
         "state": "CA",
-        "longitude": -120.45842802173385,
-        "latitude": 34.66347801250568
+        "longitude": -120.45836799999995,
+        "latitude": 34.66352000000006
     },
     {
         "name": "LongBeach507",
         "street": "3700 E Willow St",
         "city": "Long Beach",
         "state": "CA",
-        "longitude": -118.14947797830658,
-        "latitude": 33.80360601646994
+        "longitude": -118.14945199999994,
+        "latitude": 33.803616000000034
     },
     {
         "name": "LosAngeles502",
         "street": "3615 S Hope St",
         "city": "Los Angeles",
         "state": "CA",
-        "longitude": -118.27919798823037,
-        "latitude": 34.017989995897736
+        "longitude": -118.279136,
+        "latitude": 34.01805400000006
     },
     {
         "name": "LosBanos650",
         "street": "814 W L St",
         "city": "Los Banos",
         "state": "CA",
-        "longitude": -120.8628449593032,
-        "latitude": 37.0598739791009
+        "longitude": -120.86285899999996,
+        "latitude": 37.059889000000055
     },
     {
         "name": "LosGatos640",
         "street": "600 N Santa Cruz Ave",
         "city": "Los Gatos",
         "state": "CA",
-        "longitude": -121.97847983924572,
-        "latitude": 37.23393212836624
+        "longitude": -121.97801099999998,
+        "latitude": 37.23387100000008
     },
     {
         "name": "Madera533",
         "street": "1206 Maple St",
         "city": "Madera",
         "state": "CA",
-        "longitude": -120.07256995889944,
-        "latitude": 36.94947098705427
+        "longitude": -120.07260299999996,
+        "latitude": 36.94977300000005
     },
     {
         "name": "Manteca658",
         "street": "955 Davis St",
         "city": "Manteca",
         "state": "CA",
-        "longitude": -121.22967855175031,
-        "latitude": 37.80061368898333
+        "longitude": -121.22997399999997,
+        "latitude": 37.80082100000004
     },
     {
         "name": "Mariposa566",
         "street": "5264 Hwy. 49  North",
         "city": "Mariposa",
         "state": "CA",
-        "longitude": -119.97980399987651,
-        "latitude": 37.49618401634329
+        "longitude": -119.97979699999996,
+        "latitude": 37.49621300000007
     },
     {
         "name": "MendotaTravelRun822",
         "street": "655 Quince St",
         "city": "Mendota",
         "state": "CA",
-        "longitude": -120.3826146846845,
-        "latitude": 36.75410908310133
+        "longitude": -120.38217599999996,
+        "latitude": 36.75422400000008
     },
     {
         "name": "Merced536",
         "street": "1313 W 12th St",
         "city": "Merced",
         "state": "CA",
-        "longitude": -120.4984439818647,
-        "latitude": 37.301354011195414
+        "longitude": -120.49846999999994,
+        "latitude": 37.301356000000055
     },
     {
         "name": "Modesto557",
         "street": "124 Burney St",
         "city": "Modesto",
         "state": "CA",
-        "longitude": -120.98888168395553,
-        "latitude": 37.63846553457317
+        "longitude": -120.98800299999999,
+        "latitude": 37.63913300000007
     },
     {
         "name": "Montebello511",
         "street": "424 N Wilcox Ave",
         "city": "Montebello",
         "state": "CA",
-        "longitude": -118.1225480130513,
-        "latitude": 34.01942900103491
+        "longitude": -118.12255199999998,
+        "latitude": 34.01943000000006
     },
     {
         "name": "Mt.Shasta639",
         "street": "154 Morgan Way",
         "city": "Mount Shasta",
         "state": "CA",
-        "longitude": -122.31687674272443,
-        "latitude": 41.31003951523935
+        "longitude": -122.31540199999995,
+        "latitude": 41.308636000000035
     },
     {
         "name": "Napa540",
         "street": "2550 Napa Valley Corporate Dr",
         "city": "Napa",
         "state": "CA",
-        "longitude": -122.2741080086092,
-        "latitude": 38.25533998583225
+        "longitude": -122.27408599999995,
+        "latitude": 38.25536800000003
     },
     {
         "name": "Needles584",
         "street": "1040 E. Broadway",
         "city": "Needles",
         "state": "CA",
-        "longitude": -114.59528096699867,
-        "latitude": 34.82489599139657
+        "longitude": -114.59484199999997,
+        "latitude": 34.82434900000004
     },
     {
         "name": "Newhall662",
         "street": "24427 Newhall Ave",
         "city": "Newhall",
         "state": "CA",
-        "longitude": -118.53316898389402,
-        "latitude": 34.37950198276877
+        "longitude": -118.53315599999996,
+        "latitude": 34.379526000000055
     },
     {
         "name": "Norco586",
         "street": "3201 Horseless Carriage Dr",
         "city": "Norco",
         "state": "CA",
-        "longitude": -117.56224657689128,
-        "latitude": 33.928333576660314
+        "longitude": -117.56144999999998,
+        "latitude": 33.928112000000056
     },
     {
         "name": "Novato686",
@@ -724,8 +716,8 @@
         "street": "5300 Claremont Ave. 1st Flr.",
         "city": "Oakland",
         "state": "CA",
-        "longitude": -122.25979096361426,
-        "latitude": 37.83956498272697
+        "longitude": -122.25976799999995,
+        "latitude": 37.83959100000004
     },
     {
         "name": "OaklandColiseum604",
@@ -740,24 +732,24 @@
         "street": "4005 Plaza Dr.",
         "city": "Oceanside",
         "state": "CA",
-        "longitude": -117.28917371141245,
-        "latitude": 33.1833408987212
+        "longitude": -117.28837499999997,
+        "latitude": 33.183012000000076
     },
     {
         "name": "Oroville522",
         "street": "775 Mitchell Ave",
         "city": "Oroville",
         "state": "CA",
-        "longitude": -121.56514300106332,
-        "latitude": 39.504150980852614
+        "longitude": -121.56511999999998,
+        "latitude": 39.50414900000004
     },
     {
         "name": "Oxnard636",
         "street": "4050 Saviers Rd",
         "city": "Oxnard",
         "state": "CA",
-        "longitude": -119.17693301065682,
-        "latitude": 34.16320500157923
+        "longitude": -119.17690599999997,
+        "latitude": 34.163200000000074
     },
     {
         "name": "PacoimaDLPC693",
@@ -772,80 +764,80 @@
         "street": "74740 Technology Dr",
         "city": "Palm Desert",
         "state": "CA",
-        "longitude": -116.35657204145406,
-        "latitude": 33.785400019858685
+        "longitude": -116.35659099999998,
+        "latitude": 33.78530600000005
     },
     {
         "name": "PalmSprings659",
         "street": "950 N Farrell Dr",
         "city": "Palm Springs",
         "state": "CA",
-        "longitude": -116.51904802607328,
-        "latitude": 33.83685300305339
+        "longitude": -116.51903399999998,
+        "latitude": 33.83677000000006
     },
     {
         "name": "Pasadena509",
         "street": "49 S Rosemead Blvd",
         "city": "Pasadena",
         "state": "CA",
-        "longitude": -118.07390196159199,
-        "latitude": 34.14522099967358
+        "longitude": -118.07386599999995,
+        "latitude": 34.14519800000005
     },
     {
         "name": "PasoRobles574",
         "street": "841 Park St",
         "city": "Paso Robles",
         "state": "CA",
-        "longitude": -120.69019896010411,
-        "latitude": 35.623313004906905
+        "longitude": -120.69020699999999,
+        "latitude": 35.623259000000076
     },
     {
         "name": "Petaluma634",
         "street": "715-J  Southpoint Blvd. Petaluma",
         "city": "Petaluma",
         "state": "CA",
-        "longitude": -122.64562597621494,
-        "latitude": 38.25718501035925
+        "longitude": -122.64617599999997,
+        "latitude": 38.25735600000007
     },
     {
         "name": "Pittsburg592",
         "street": "1399 Buchanan Rd",
         "city": "Pittsburg",
         "state": "CA",
-        "longitude": -121.87258500693021,
-        "latitude": 37.999107007868176
+        "longitude": -121.87184499999995,
+        "latitude": 37.999037000000044
     },
     {
         "name": "Placerville525",
         "street": "2919 Cold Springs Rd",
         "city": "Placerville",
         "state": "CA",
-        "longitude": -120.82513201088884,
-        "latitude": 38.73462399874563
+        "longitude": -120.82508899999999,
+        "latitude": 38.73458700000003
     },
     {
         "name": "Pleasanton631",
         "street": "6300 W Las Positas Blvd",
         "city": "Pleasanton",
         "state": "CA",
-        "longitude": -121.90574096604519,
-        "latitude": 37.6801260130853
+        "longitude": -121.905757,
+        "latitude": 37.68011300000006
     },
     {
         "name": "Pomona532",
         "street": "1600 S Garey Ave",
         "city": "Pomona",
         "state": "CA",
-        "longitude": -117.74945883278096,
-        "latitude": 34.042344399885984
+        "longitude": -117.74928799999998,
+        "latitude": 34.04214500000006
     },
     {
         "name": "Porterville573",
         "street": "329 E Olive Ave",
         "city": "Porterville",
         "state": "CA",
-        "longitude": -119.00957800401821,
-        "latitude": 36.06491499862862
+        "longitude": -119.009278,
+        "latitude": 36.06329800000003
     },
     {
         "name": "Poway676",
@@ -860,88 +852,88 @@
         "street": "1953 E Main St. #3.",
         "city": "Quincy",
         "state": "CA",
-        "longitude": -120.90332401958449,
-        "latitude": 39.9347220128098
+        "longitude": -120.90266199999996,
+        "latitude": 39.93471600000004
     },
     {
         "name": "RanchoCucamonga612",
         "street": "8629 Hellman Ave",
         "city": "Rancho Cucamonga",
         "state": "CA",
-        "longitude": -117.60159303322509,
-        "latitude": 34.097107995346704
+        "longitude": -117.60165799999999,
+        "latitude": 34.097095000000024
     },
     {
         "name": "RedBluff558",
         "street": "675 Monroe St.",
         "city": "Red Bluff",
         "state": "CA",
-        "longitude": -122.23886797308869,
-        "latitude": 40.17479099341426
+        "longitude": -122.23900299999997,
+        "latitude": 40.17476800000003
     },
     {
         "name": "Redding551",
         "street": "2135 Civic Center Dr",
         "city": "Redding",
         "state": "CA",
-        "longitude": -122.38007999136116,
-        "latitude": 40.57587201733881
+        "longitude": -122.38019199999997,
+        "latitude": 40.57563300000004
     },
     {
         "name": "Redlands626",
         "street": "1659 W Lugonia Ave",
         "city": "Redlands",
         "state": "CA",
-        "longitude": -117.21254196819501,
-        "latitude": 34.069888980160414
+        "longitude": -117.21253099999996,
+        "latitude": 34.069889000000046
     },
     {
         "name": "RedwoodCity548",
         "street": "300 Brewster Ave",
         "city": "Redwood City",
         "state": "CA",
-        "longitude": -122.22900901093567,
-        "latitude": 37.4926240125171
+        "longitude": -122.22905999999995,
+        "latitude": 37.492635000000064
     },
     {
         "name": "Reedley633",
         "street": "558 E Dinuba Ave",
         "city": "Reedley",
         "state": "CA",
-        "longitude": -119.44334300208993,
-        "latitude": 36.590081004700664
+        "longitude": -119.44327199999998,
+        "latitude": 36.59012700000005
     },
     {
         "name": "Ridgecrest577",
         "street": "540 Perdew Ave.  #A",
         "city": "Ridgecrest",
         "state": "CA",
-        "longitude": -117.6807969890911,
-        "latitude": 35.64924900217413
+        "longitude": -117.68084699999997,
+        "latitude": 35.64904500000006
     },
     {
         "name": "Riverside545",
         "street": "6280 Brockton Ave",
         "city": "Riverside",
         "state": "CA",
-        "longitude": -117.39608100494188,
-        "latitude": 33.957649010213856
+        "longitude": -117.39631599999996,
+        "latitude": 33.957641000000024
     },
     {
         "name": "RiversideEast656",
         "street": "6425 Sycamore Canyon Blvd",
         "city": "Riverside",
         "state": "CA",
-        "longitude": -117.29921202049553,
-        "latitude": 33.93446801879186
+        "longitude": -117.29929799999996,
+        "latitude": 33.93449900000007
     },
     {
         "name": "Rocklin673",
         "street": "5245 S Grove St",
         "city": "Rocklin",
         "state": "CA",
-        "longitude": -121.23157996741662,
-        "latitude": 38.787405010679464
+        "longitude": -121.23181799999998,
+        "latitude": 38.78741700000006
     },
     {
         "name": "Roseville543",
@@ -964,168 +956,168 @@
         "street": "4700 Broadway",
         "city": "Sacramento",
         "state": "CA",
-        "longitude": -121.4508801426044,
-        "latitude": 38.546115331606075
+        "longitude": -121.45084499999996,
+        "latitude": 38.54611100000005
     },
     {
         "name": "Salinas539",
         "street": "260 E Laurel Dr",
         "city": "Salinas",
         "state": "CA",
-        "longitude": -121.64744096884851,
-        "latitude": 36.69782798117856
+        "longitude": -121.64738499999999,
+        "latitude": 36.697827000000075
     },
     {
         "name": "SanAndreas568",
         "street": "745 Mountain Ranch Rd",
         "city": "San Andreas",
         "state": "CA",
-        "longitude": -120.67094601832963,
-        "latitude": 38.19078710825758
+        "longitude": -120.67115399999994,
+        "latitude": 38.191076000000066
     },
     {
         "name": "SanBernardino512",
         "street": "1310 N Waterman Ave",
         "city": "San Bernardino",
         "state": "CA",
-        "longitude": -117.27919000074229,
-        "latitude": 34.12347700173197
+        "longitude": -117.27921599999996,
+        "latitude": 34.12369600000005
     },
     {
         "name": "SanClemente648",
         "street": "2727 Via Cascadita",
         "city": "San Clemente",
         "state": "CA",
-        "longitude": -117.64237501548715,
-        "latitude": 33.442735999563126
+        "longitude": -117.64232199999998,
+        "latitude": 33.44286800000003
     },
     {
         "name": "SanDiego519",
         "street": "4375 Derrick Dr",
         "city": "San Diego",
         "state": "CA",
-        "longitude": -117.18318171759876,
-        "latitude": 32.82352518161845
+        "longitude": -117.18230799999998,
+        "latitude": 32.82320600000003
     },
     {
         "name": "SanDiegoNormal506",
         "street": "3960 Normal St",
         "city": "San Diego",
         "state": "CA",
-        "longitude": -117.14928399638706,
-        "latitude": 32.7505399951481
+        "longitude": -117.14929899999998,
+        "latitude": 32.75054700000004
     },
     {
         "name": "SanFrancisco503",
         "street": "1377 Fell St",
         "city": "San Francisco",
         "state": "CA",
-        "longitude": -122.44046297037995,
-        "latitude": 37.77332498122627
+        "longitude": -122.44046699999996,
+        "latitude": 37.77335300000004
     },
     {
         "name": "SanJose516",
         "street": "111 W Alma Ave",
         "city": "San Jose",
         "state": "CA",
-        "longitude": -121.87678299931659,
-        "latitude": 37.31503499546788
+        "longitude": -121.87671099999994,
+        "latitude": 37.314940000000036
     },
     {
         "name": "SanJoseDLPC645",
         "street": "2222 Senter Road",
         "city": "San Jose",
         "state": "CA",
-        "longitude": -121.84991195884064,
-        "latitude": 37.31128199832108
+        "longitude": -121.85000799999995,
+        "latitude": 37.311127000000056
     },
     {
         "name": "SanLuisObispo547",
         "street": "3190 S Higuera St",
         "city": "San Luis Obispo",
         "state": "CA",
-        "longitude": -120.66926197180024,
-        "latitude": 35.25745801872455
+        "longitude": -120.66924199999994,
+        "latitude": 35.257528000000036
     },
     {
         "name": "SanMarcos689",
         "street": "590 Rancheros Drive",
         "city": "San Marcos",
         "state": "CA",
-        "longitude": -117.14685422321435,
-        "latitude": 33.13985047964847
+        "longitude": -117.14740199999994,
+        "latitude": 33.14067200000005
     },
     {
         "name": "SanMateo593",
         "street": "425 N Amphlett Blvd",
         "city": "San Mateo",
         "state": "CA",
-        "longitude": -122.3240400116537,
-        "latitude": 37.578690986884155
+        "longitude": -122.32410799999997,
+        "latitude": 37.578711000000055
     },
     {
         "name": "SanPedro619",
         "street": "1511 N Gaffey St",
         "city": "San Pedro",
         "state": "CA",
-        "longitude": -118.29299300829554,
-        "latitude": 33.758181004672394
+        "longitude": -118.29309899999998,
+        "latitude": 33.75836300000003
     },
     {
         "name": "SantaAna542",
         "street": "1330 E First St",
         "city": "Santa Ana",
         "state": "CA",
-        "longitude": -117.85095938977385,
-        "latitude": 33.745372738768175
+        "longitude": -117.85058899999996,
+        "latitude": 33.74478800000003
     },
     {
         "name": "SantaBarbara549",
         "street": "535 Castillo St",
         "city": "Santa Barbara",
         "state": "CA",
-        "longitude": -119.70133203067878,
-        "latitude": 34.41308001261814
+        "longitude": -119.70136099999996,
+        "latitude": 34.413099000000045
     },
     {
         "name": "SantaClara632",
         "street": "3665 Flora Vista Ave",
         "city": "Santa Clara",
         "state": "CA",
-        "longitude": -121.99405596684387,
-        "latitude": 37.35021899796567
+        "longitude": -121.99397399999998,
+        "latitude": 37.35011900000006
     },
     {
         "name": "SantaMaria563",
         "street": "523 S McClelland St",
         "city": "Santa Maria",
         "state": "CA",
-        "longitude": -120.43475601842383,
-        "latitude": 34.94755801975148
+        "longitude": -120.43473599999999,
+        "latitude": 34.947538000000065
     },
     {
         "name": "SantaMonica616",
         "street": "2235 Colorado Ave",
         "city": "Santa Monica",
         "state": "CA",
-        "longitude": -118.47504702325679,
-        "latitude": 34.02817899548829
+        "longitude": -118.47505099999995,
+        "latitude": 34.028170000000046
     },
     {
         "name": "SantaPaula630",
         "street": "250 W. Harvard Blvd.  #A",
         "city": "Santa Paula",
         "state": "CA",
-        "longitude": -119.07605303408394,
-        "latitude": 34.34460799412085
+        "longitude": -119.07542399999994,
+        "latitude": 34.34457100000003
     },
     {
         "name": "SantaRosa555",
         "street": "2570 Corby Ave",
         "city": "Santa Rosa",
         "state": "CA",
-        "longitude": -122.71679026201218,
-        "latitude": 38.4150990603562
+        "longitude": -122.71683599999994,
+        "latitude": 38.41499300000004
     },
     {
         "name": "SantaTeresa668",
@@ -1148,32 +1140,32 @@
         "street": "1180 Canyon Del Rey Blvd",
         "city": "Seaside",
         "state": "CA",
-        "longitude": -121.85321803291012,
-        "latitude": 36.602672006284195
+        "longitude": -121.85316499999999,
+        "latitude": 36.60269000000005
     },
     {
         "name": "Shafter660",
         "street": "548 Walker St",
         "city": "Shafter",
         "state": "CA",
-        "longitude": -119.27260799299582,
-        "latitude": 35.50339600793244
+        "longitude": -119.27258699999999,
+        "latitude": 35.50335700000005
     },
     {
         "name": "SimiValley680",
         "street": "3855-D  Alamo St.",
         "city": "Simi Valley",
         "state": "CA",
-        "longitude": -118.72165300823825,
-        "latitude": 34.28752501229175
+        "longitude": -118.72205399999996,
+        "latitude": 34.28826200000003
     },
     {
         "name": "Sonora569",
         "street": "885 Morning Star Drive",
         "city": "Sonora",
         "state": "CA",
-        "longitude": -120.37007697875148,
-        "latitude": 37.98446998371951
+        "longitude": -120.37006899999994,
+        "latitude": 37.984503000000075
     },
     {
         "name": "SouthLakeTahoe538",
@@ -1188,16 +1180,16 @@
         "street": "7775 La Mancha Way",
         "city": "Sacramento",
         "state": "CA",
-        "longitude": -121.42672651513793,
-        "latitude": 38.47676644030807
+        "longitude": -121.42667699999998,
+        "latitude": 38.476755000000026
     },
     {
         "name": "Stockton517",
         "street": "55 South Lincoln Street",
         "city": "Stockton",
         "state": "CA",
-        "longitude": -121.29784000166592,
-        "latitude": 37.95061199830408
+        "longitude": -121.29775799999999,
+        "latitude": 37.95066000000003
     },
     {
         "name": "stoneridge664",
@@ -1212,48 +1204,48 @@
         "street": "2615 Main St",
         "city": "Susanville",
         "state": "CA",
-        "longitude": -120.63849438221332,
-        "latitude": 40.41235289074703
+        "longitude": -120.63777799999997,
+        "latitude": 40.41240000000005
     },
     {
         "name": "Taft575",
         "street": "165 Center St",
         "city": "Taft",
         "state": "CA",
-        "longitude": -119.45451700103214,
-        "latitude": 35.13930000604098
+        "longitude": -119.45450699999998,
+        "latitude": 35.13931400000007
     },
     {
         "name": "Temecula672",
         "street": "27851 Diaz Rd",
         "city": "Temecula",
         "state": "CA",
-        "longitude": -117.16135703826387,
-        "latitude": 33.50606798357613
+        "longitude": -117.16128499999996,
+        "latitude": 33.50610500000005
     },
     {
         "name": "ThousandOaks663",
         "street": "1810 East Avenida De Los Arboles",
         "city": "Thousand Oaks",
         "state": "CA",
-        "longitude": -118.84419098442615,
-        "latitude": 34.21081999512893
+        "longitude": -118.84415399999995,
+        "latitude": 34.21083100000004
     },
     {
         "name": "Torrance608",
         "street": "1785 W 220th St",
         "city": "Torrance",
         "state": "CA",
-        "longitude": -118.31112298104499,
-        "latitude": 33.828534006061275
+        "longitude": -118.31109599999996,
+        "latitude": 33.82851500000004
     },
     {
         "name": "Tracy642",
         "street": "2785 Auto Plaza Drive",
         "city": "Tracy",
         "state": "CA",
-        "longitude": -121.46752926288895,
-        "latitude": 37.76210812600415
+        "longitude": -121.46770499999997,
+        "latitude": 37.76254600000004
     },
     {
         "name": "Truckee513",
@@ -1268,152 +1260,152 @@
         "street": "274 E Cross Ave",
         "city": "Tulare",
         "state": "CA",
-        "longitude": -119.3463302683311,
-        "latitude": 36.21347952340786
+        "longitude": -119.346229,
+        "latitude": 36.21387400000003
     },
     {
         "name": "Tulelake553",
         "street": "399 Main St",
         "city": "Tulelake",
         "state": "CA",
-        "longitude": -121.47682692672763,
-        "latitude": 41.95612735279456
+        "longitude": -121.47699199999994,
+        "latitude": 41.95620300000007
     },
     {
         "name": "Turlock649",
         "street": "825 E Monte Vista Ave",
         "city": "Turlock",
         "state": "CA",
-        "longitude": -120.8393469643031,
-        "latitude": 37.522576994971644
+        "longitude": -120.83940299999995,
+        "latitude": 37.52259000000004
     },
     {
         "name": "TwentyninePalms638",
         "street": "3668 Adobe Rd.  #G-J",
         "city": "Twentynine Palms",
         "state": "CA",
-        "longitude": -116.0555519983431,
-        "latitude": 34.186946993780765
+        "longitude": -116.05541599999998,
+        "latitude": 34.187194000000034
     },
     {
         "name": "Ukiah535",
         "street": "542 S Orchard Ave",
         "city": "Ukiah",
         "state": "CA",
-        "longitude": -123.19952703230061,
-        "latitude": 39.14755200461835
+        "longitude": -123.19948499999998,
+        "latitude": 39.147624000000064
     },
     {
         "name": "Vacaville588",
         "street": "621 Orange Dr",
         "city": "Vacaville",
         "state": "CA",
-        "longitude": -121.94487498232391,
-        "latitude": 38.37844897917401
+        "longitude": -121.94486399999994,
+        "latitude": 38.37836800000008
     },
     {
         "name": "Vallejo554",
         "street": "200 Couch St",
         "city": "Vallejo",
         "state": "CA",
-        "longitude": -122.25195396796425,
-        "latitude": 38.11715002084017
+        "longitude": -122.25143999999995,
+        "latitude": 38.11723800000004
     },
     {
         "name": "VanNuys515",
         "street": "14920 Vanowen St",
         "city": "Van Nuys",
         "state": "CA",
-        "longitude": -118.45833501706753,
-        "latitude": 34.19341698484189
+        "longitude": -118.45831799999996,
+        "latitude": 34.193434000000025
     },
     {
         "name": "Ventura560",
         "street": "4260 Market St",
         "city": "Ventura",
         "state": "CA",
-        "longitude": -119.23636397311294,
-        "latitude": 34.25666401826621
+        "longitude": -119.23633799999999,
+        "latitude": 34.25662700000004
     },
     {
         "name": "Victorville629",
         "street": "14855 Corta Dr",
         "city": "Victorville",
         "state": "CA",
-        "longitude": -117.30507315378497,
-        "latitude": 34.52118693453629
+        "longitude": -117.30519199999998,
+        "latitude": 34.51988200000005
     },
     {
         "name": "Visalia559",
         "street": "1711 E. Main",
         "city": "Visalia",
         "state": "CA",
-        "longitude": -119.27369948442731,
-        "latitude": 36.32963054642529
+        "longitude": -119.27361799999994,
+        "latitude": 36.32936300000006
     },
     {
         "name": "WalnutCreek624",
         "street": "",
         "city": "Walnut Creek",
         "state": "CA",
-        "longitude": -122.06188999999995,
-        "latitude": 37.90162000000004
+        "longitude": -122.06087499999995,
+        "latitude": 37.905430000000024
     },
     {
         "name": "Watsonville583",
         "street": "90 Alta Vista Ave",
         "city": "Watsonville",
         "state": "CA",
-        "longitude": -121.76828722192909,
-        "latitude": 36.92701938375657
+        "longitude": -121.76804499999997,
+        "latitude": 36.92747000000003
     },
     {
         "name": "Weaverville572",
         "street": "1511 Main St",
         "city": "Weaverville",
         "state": "CA",
-        "longitude": -122.92881201157758,
-        "latitude": 40.723047005349315
+        "longitude": -122.92881699999998,
+        "latitude": 40.723073000000056
     },
     {
         "name": "WestCovina618",
         "street": "800 S Glendora Ave",
         "city": "West Covina",
         "state": "CA",
-        "longitude": -117.93171351810925,
-        "latitude": 34.06147919516504
+        "longitude": -117.93153099999995,
+        "latitude": 34.06099700000004
     },
     {
         "name": "Westminster611",
         "street": "13700 Hoover St",
         "city": "Westminster",
         "state": "CA",
-        "longitude": -117.99795999098474,
-        "latitude": 33.76421199355471
+        "longitude": -117.99793899999997,
+        "latitude": 33.764166000000046
     },
     {
         "name": "Whittier591",
         "street": "9338  S. Painter Ave.",
         "city": "Whittier",
         "state": "CA",
-        "longitude": -118.04304901419349,
-        "latitude": 33.95254401208486
+        "longitude": -118.04304399999995,
+        "latitude": 33.95258000000007
     },
     {
         "name": "Willows571",
         "street": "815 N Humboldt Ave",
         "city": "Willows",
         "state": "CA",
-        "longitude": -122.21254997058425,
-        "latitude": 39.52965799231532
+        "longitude": -122.21251299999994,
+        "latitude": 39.529724000000044
     },
     {
         "name": "Winnetka637",
         "street": "20725 Sherman Way",
         "city": "Winnetka",
         "state": "CA",
-        "longitude": -118.58503200979206,
-        "latitude": 34.20157500738351
+        "longitude": -118.58470499999999,
+        "latitude": 34.201433000000065
     },
     {
         "name": "Woodland561",
@@ -1428,23 +1420,23 @@
         "street": "2528 Evergreen Ave",
         "city": "West Sacramento",
         "state": "CA",
-        "longitude": -121.54537897628983,
-        "latitude": 38.577319983661795
+        "longitude": -121.54537099999999,
+        "latitude": 38.57731400000006
     },
     {
         "name": "Yreka552",
         "street": "1848 Fort Jones Rd",
         "city": "Yreka",
         "state": "CA",
-        "longitude": -122.64585653561494,
-        "latitude": 41.70161058299677
+        "longitude": -122.64457099999998,
+        "latitude": 41.70013800000004
     },
     {
         "name": "YubaCity562",
         "street": "1570 Poole Blvd",
         "city": "Yuba City",
         "state": "CA",
-        "longitude": -121.64331900032391,
-        "latitude": 39.14392498747628
+        "longitude": -121.64329399999997,
+        "latitude": 39.14403200000004
     }
 ]
