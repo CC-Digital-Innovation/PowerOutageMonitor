@@ -1,13 +1,15 @@
 import json
+import os
+
+import yaml
 from loguru import logger
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-import yaml
+from selenium.webdriver.support.ui import WebDriverWait
 
-config = yaml.safe_load(open("config.yaml"))
+config = yaml.safe_load(open(os.path.join(os.path.dirname(__file__), "config.yaml")))
 
 @logger.catch
 def get_power_outage_sce(address):
@@ -27,9 +29,15 @@ def get_power_outage_sce(address):
         If address could not be found
     """
 
-    chromeOptions = webdriver.ChromeOptions()
-    chromeOptions.add_argument("--headless")
-    driver = webdriver.Chrome(options=chromeOptions)
+    # Using FireFox
+    # firefox_options = webdriver.FirefoxOptions()
+    # firefox_options.add_argument("--headless")
+    # driver = webdriver.Firefox(options=firefox_options)
+
+    # Using Chromium
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_argument("--headless")
+    driver = webdriver.Chrome(options=chrome_options)
 
     url = "https://www.sce.com/outage-center/addresslookup"
     driver.get(url)
@@ -39,24 +47,24 @@ def get_power_outage_sce(address):
     try:
         # Find address input element, input address, and press ENTER key
         search_input = WebDriverWait(driver, max_wait_time).until(
-                EC.presence_of_element_located((By.XPATH, "//*[@id='search']/div/div[1]/form/input")))
+                EC.visibility_of_element_located((By.XPATH, "//*[@id='search']/div/div[1]/form/input")))
         search_input.send_keys(address)
         search_input.send_keys(Keys.RETURN)
 
         # Check address
         address_element = WebDriverWait(driver, max_wait_time).until(
-            EC.presence_of_element_located((By.ID, "address-searched")))
-        if address_element.text is None:
+            EC.visibility_of_element_located((By.ID, "address-searched")))
+        if not address_element.text:
             logger.error("Could not find address")
             return None
-        
+
         # initialize return payload
         payload = {}    
         payload["address"] = address_element.text
 
         # Find total number of outages
         outages_city_count_element = WebDriverWait(driver, max_wait_time).until(
-            EC.presence_of_element_located((By.XPATH, "//*[@id='heading-accordion-39357-1']/div/h3/button/span[2]")))
+            EC.visibility_of_element_located((By.XPATH, "//*[@id='heading-accordion-39357-1']/div/h3/button/span[2]")))
         payload["outagesInCity"] = int(outages_city_count_element.text[1:2])
         if payload["outagesInCity"] == 0:
             return payload
@@ -66,23 +74,23 @@ def get_power_outage_sce(address):
 
         # open drop-down list
         WebDriverWait(driver, max_wait_time).until(
-                EC.presence_of_element_located((By.XPATH, "//*[@id='heading-accordion-39357-1']/div/h3/button"))).click()
+                EC.visibility_of_element_located((By.XPATH, "//*[@id='heading-accordion-39357-1']/div/h3/button"))).click()
 
         # Find and fill outage details
         for i in range(0, payload["outagesInCity"]):
             payload["outages"].append({})
             payload["outages"][i]["outageType"] = WebDriverWait(driver, max_wait_time).until(
-                EC.presence_of_element_located((By.XPATH, "//*[@id='city-outages']/div[" + str(i + 1) + "]/div[1]/span"))).text
+                EC.visibility_of_element_located((By.XPATH, "//*[@id='city-outages']/div[" + str(i + 1) + "]/div[1]/span"))).text
             payload["outages"][i]["lastUpdated"] = WebDriverWait(driver, max_wait_time).until(
-                EC.presence_of_element_located((By.XPATH, "//*[@id='city-outages']/div[" + str(i + 1) + "]/div[1]/div"))).text[len("Last Updated: "):]
+                EC.visibility_of_element_located((By.XPATH, "//*[@id='city-outages']/div[" + str(i + 1) + "]/div[1]/div"))).text[len("Last Updated: "):]
             payload["outages"][i]["estimatedRestoreTime"] = WebDriverWait(driver, max_wait_time).until(
-                EC.presence_of_element_located((By.XPATH, "//*[@id='city-outages']/div[" + str(i + 1) + "]/div[2]"))).text[len("Estimated Time of Restoration: "):]
+                EC.visibility_of_element_located((By.XPATH, "//*[@id='city-outages']/div[" + str(i + 1) + "]/div[2]"))).text[len("Estimated Time of Restoration: "):]
             payload["outages"][i]["reason"] = WebDriverWait(driver, max_wait_time).until(
-                EC.presence_of_element_located((By.XPATH, "//*[@id='city-outages']/div[" + str(i + 1) + "]/div[4]/div[1]"))).text[len("Reason: "):]
+                EC.visibility_of_element_located((By.XPATH, "//*[@id='city-outages']/div[" + str(i + 1) + "]/div[4]/div[1]"))).text[len("Reason: "):]
             payload["outages"][i]["outageNumber"] = WebDriverWait(driver, max_wait_time).until(
-                EC.presence_of_element_located((By.XPATH, "//*[@id='city-outages']/div[" + str(i + 1) + "]/div[5]/div[2]"))).text[len("Outage #:"):]
+                EC.visibility_of_element_located((By.XPATH, "//*[@id='city-outages']/div[" + str(i + 1) + "]/div[5]/div[2]"))).text[len("Outage #:"):]
             statuses = WebDriverWait(driver, max_wait_time).until(
-                EC.presence_of_element_located((By.XPATH, "//*[@id='city-outages']/div[" + str(i + 1) + "]/div[3]"))).text
+                EC.visibility_of_element_located((By.XPATH, "//*[@id='city-outages']/div[" + str(i + 1) + "]/div[3]"))).text
             payload["outages"][i]["outageStatus"] = find_step_in_progress(statuses)
         return payload
     finally:
@@ -112,7 +120,7 @@ def find_step_in_progress(status_str):
 
 def main():
     # Test
-    logger.info(json.dumps(get_power_outage_sce("Covina Cannabis RX, 964 E St, Covina, CA, 91724, USA"), indent=4, sort_keys=True))
+    logger.info(json.dumps(get_power_outage_sce("San Dieguito Heritage Museum, 450 Quail Gardens Dr, Encinitas, CA"), indent=4, sort_keys=True))
 
 if __name__ == "__main__":
     main()
