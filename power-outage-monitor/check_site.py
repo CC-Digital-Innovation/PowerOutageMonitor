@@ -1,12 +1,13 @@
-import datetime
+from datetime import datetime
 import json
+import os
 
 import pytz
 import requests
 import yaml
 from loguru import logger
 
-config = yaml.safe_load(open("config.yaml"))
+config = yaml.safe_load(open(os.path.join(os.path.dirname(__file__), "config.yaml")))
 
 @logger.catch
 def convert_epoch_to_datetime(epoch):
@@ -24,7 +25,7 @@ def convert_epoch_to_datetime(epoch):
         If it is not specified, timezone defaults to local.
     """
 
-    converted_datetime = datetime.datetime.fromtimestamp(epoch, datetime.datetime.now().astimezone().tzinfo)
+    converted_datetime = datetime.fromtimestamp(epoch, datetime.now().astimezone().tzinfo)
     if config["date-time"]["timezone"]:
         return converted_datetime.astimezone(pytz.timezone(config["date-time"]["timezone"]))
     return converted_datetime
@@ -166,11 +167,29 @@ def get_pge_power_status(site):
 #function to redirect which function API to call
 @logger.catch
 def get_site_status(site, provider):
+    address = ", ".join((site["street"], site["city"], site["state"]))
+    payload = {
+        "SiteName": site["siteName"],
+        "Address": address,
+        "Longitude": site["longitude"],
+        "Latitude": site["latitude"]
+    }
     if provider:
         if provider.lower() == "pge":
             logger.info("PGE API USED")
-            logger.info(json.dumps(get_pge_power_status(site), indent=4, sort_keys=True))
-            return get_pge_power_status(site)
-    logger.info("GIS API USED")
-    logger.info(json.dumps(get_gis_power_status(site), indent=4, sort_keys=True))
-    return get_gis_power_status(site)
+            payload.update(get_pge_power_status(site))
+            payload["Time"] = datetime.utcnow().strftime(config["date-time"]["timeFormat"])
+            logger.info(json.dumps(payload, indent=4, sort_keys=True))
+            return payload
+        if provider.lower() == "gis":
+            logger.info("GIS API USED")
+            payload.update(get_gis_power_status(site))
+            payload["Time"] = datetime.utcnow().strftime(config["date-time"]["timeFormat"])
+            logger.info(json.dumps(payload, indent=4, sort_keys=True))
+            return payload
+    else:
+        logger.info("GIS API USED")
+        payload.update(get_gis_power_status(site))
+        payload["Time"] = datetime.utcnow().strftime(config["date-time"]["timeFormat"])
+        logger.info(json.dumps(payload, indent=4, sort_keys=True))
+        return payload
