@@ -133,3 +133,9 @@ dmypy.json
 
 # IntelliJ
 .idea/
+
+# VSCode
+**/.vscode
+
+# ignore sqlite db
+**/sites/site.db
