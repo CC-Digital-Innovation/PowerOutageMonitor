@@ -2,9 +2,8 @@ import logging.handlers
 import sys
 from typing import Optional
 
-import uvicorn
 import yaml
-from fastapi import FastAPI, Response, status, HTTPException
+from fastapi import FastAPI, HTTPException
 from loguru import logger
 
 from sites import controller
@@ -43,20 +42,19 @@ def set_log_level(log_level):
 
 
 set_log_level(config["logger"]["logLevel"])
-logger.info("test watchtower 3")
+logger.info("Starting up PowerCheckAPI...")
 app = FastAPI()
 
 
 @logger.catch
 @app.get("/checkSite")
-def check_site(siteName: str, response: Response, provider: Optional[str] = None):
+def check_site(siteName: str, provider: Optional[str] = None):
     site = controller.get_site(siteName)
     if site:
         logger.info("Found site '" + siteName + ".' Getting power status...")
         return get_site_status(site, provider)
     logger.info("Could not find site '" + siteName + "'")
-    response.status_code = status.HTTP_404_NOT_FOUND
-    return {"error": {"details": "Could not find site '" + siteName + "'"}}
+    raise HTTPException(status_code=404, detail="Could not find site '" + siteName + "'")
 
 
 @logger.catch
@@ -67,8 +65,7 @@ def get_site(siteName: str):
         logger.info("Found site '" + siteName + ".' Sending response...")
         return site
     logger.info("Could not find site '" + siteName + "'")
-    response.status_code = status.HTTP_404_NOT_FOUND
-    return {"error": {"details": "Could not find site '" + siteName + "'"}}
+    raise HTTPException(status_code=404, detail="Could not find site '" + siteName + "'")
 
 
 @logger.catch
@@ -79,11 +76,10 @@ def get_all_sites():
 
 @logger.catch
 @app.post("/sites")
-def add_site(siteName: str, street: str, city: str, state: str, response: Response, longitude: Optional[str] = None, latitude: Optional[str] = None):
+def add_site(siteName: str, street: str, city: str, state: str, longitude: Optional[str] = None, latitude: Optional[str] = None):
     if not longitude or not latitude:
         longitude, latitude = geocode.get_long_lat(",".join((street, city, state)))
     if longitude and latitude:
         return controller.add_site(siteName, street, city, state, longitude, latitude)
     logger.error("Could not get longitude and latitude, cannot add to db.")
-    response.status_code = status.HTTP_422_UNPROCESSABLE_ENTITY
-    return {"error": {"details": "Could not find longitude or latitude based on address. Check street, city, and state inputs."}}
+    raise HTTPException(status_code=422, detail="Could not find longitude or latitude based on address. Check street, city, and state inputs.")
