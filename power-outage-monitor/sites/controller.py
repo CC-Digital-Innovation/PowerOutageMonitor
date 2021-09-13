@@ -6,8 +6,8 @@ import sqlite3
 import yaml
 from loguru import logger
 
-config = yaml.safe_load(open(os.path.join(os.path.dirname(__file__), os.pardir, "config.yaml")))
-
+with open(os.path.join(os.path.dirname(__file__), os.pardir, "config.yaml")) as config_stream:
+    config = yaml.safe_load(config_stream)
 
 @logger.catch
 def init_db():

@@ -1,4 +1,5 @@
 import logging.handlers
+import os
 import sys
 from typing import Optional
 
@@ -6,12 +7,12 @@ import yaml
 from fastapi import FastAPI, HTTPException
 from loguru import logger
 
-from sites import controller
 import geocode
 from check_site import get_site_status
+from sites import controller
 
-config = yaml.safe_load(open("config.yaml"))
-
+with open(os.path.join(os.path.dirname(__file__), "config.yaml")) as config_stream:
+    config = yaml.safe_load(config_stream)
 
 @logger.catch
 def set_log_level(log_level):

@@ -1,13 +1,15 @@
-from datetime import datetime
 import json
 import os
+from copy import deepcopy
+from datetime import datetime
 
 import pytz
 import requests
 import yaml
 from loguru import logger
 
-config = yaml.safe_load(open(os.path.join(os.path.dirname(__file__), "config.yaml")))
+with open(os.path.join(os.path.dirname(__file__), "config.yaml")) as config_stream:
+    config = yaml.safe_load(config_stream)
 
 @logger.catch
 def convert_epoch_to_datetime(epoch):
@@ -62,8 +64,8 @@ def get_gis_power_status(site):
         return None
         
     url = "https://services.arcgis.com/BLN4oKB0N1YSgvY8/arcgis/rest/services/Power_Outages_(View)/FeatureServer/0/query"
-    headers = config["gis-api"]["headers"]
-    params = config["gis-api"]["params"]
+    headers = deepcopy(config["gis-api"]["headers"])
+    params = deepcopy(config["gis-api"]["params"])
 
     params["geometry"] = str(site["longitude"]) + "," + str(site["latitude"])
     params["inSR"] = "4326"
@@ -129,8 +131,8 @@ def get_pge_power_status(site):
         return None
 
     url = "https://apim.cloud.pge.com/cocoutage/outages/getOutagesRegions"
-    headers = config["pge-api"]["headers"]
-    params = config["pge-api"]["params"]
+    headers = deepcopy(config["pge-api"]["headers"])
+    params = deepcopy(config["pge-api"]["params"])
 
     response = requests.get(url, headers=headers, params=params)
 

@@ -9,7 +9,8 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
-config = yaml.safe_load(open(os.path.join(os.path.dirname(__file__), "config.yaml")))
+with open(os.path.join(os.path.dirname(__file__), "config.yaml")) as config_stream:
+    config = yaml.safe_load(config_stream)
 
 @logger.catch
 def get_power_outage_sce(address):

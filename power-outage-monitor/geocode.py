@@ -1,9 +1,13 @@
 import json
-from loguru import logger
+import os
+from copy import deepcopy
+
 import requests
 import yaml
+from loguru import logger
 
-config = yaml.safe_load(open("config.yaml"))
+with open(os.path.join(os.path.dirname(__file__), "config.yaml")) as config_stream:
+    config = yaml.safe_load(config_stream)
 
 @logger.catch
 def get_long_lat(address):
@@ -26,8 +30,8 @@ def get_long_lat(address):
     """
 
     url = "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates"
-    headers = config["geocode"]["headers"]
-    params = config["geocode"]["params"]
+    headers = deepcopy(config["geocode"]["headers"])
+    params = deepcopy(config["geocode"]["params"])
 
     params["SingleLine"] = address
 
