@@ -82,20 +82,27 @@ def get_gis_power_status(site):
         logger.error(response_content)
         return None
 
-    if len(statuses) == 1:
-        site_status = statuses[0]["attributes"]
-        
-        # convert epoch to formatted datetime
-        if "StartDate" in site_status:
+    if not statuses:
+        return {"PowerStatus": "Active"}
+    elif len(statuses) > 1:
+        logger.info("More than one outage found.")
+        for outage in statuses:
+            logger.debug(json.dumps(outage, indent=4, sort_keys=True))
+
+    site_status = statuses[0]["attributes"]
+    
+    # convert epoch to formatted datetime
+    if "StartDate" in site_status:
+        if site_status["StartDate"]:
             site_status["StartDate"] = convert_epoch_to_datetime(site_status["StartDate"]//(10**3)).strftime(config["date-time"]["timeFormat"])
-        if "EstimatedRestoreDate" in site_status:
+    if "EstimatedRestoreDate" in site_status:
+        if site_status["EstimatedRestoreDate"]:
             site_status["EstimatedRestoreDate"] = convert_epoch_to_datetime(site_status["EstimatedRestoreDate"]//(10**3)).strftime(config["date-time"]["timeFormat"])
 
-        del site_status["OutageStatus"]
-        site_status["PowerStatus"] = "Inactive"
-        return site_status
-    else:
-        return {"PowerStatus": "Active"}
+    del site_status["OutageStatus"]
+    site_status["PowerStatus"] = "Inactive"
+    return site_status
+        
 
 @logger.catch
 def get_pge_power_status(site):
@@ -150,19 +157,25 @@ def get_pge_power_status(site):
                 if site['longitude'] == outage['longitude'] and site['latitude'] == outage['latitude']:
                     # convert epoch to formatted datetime
                     if "autoEtor" in outage:
-                        outage["autoEtor"] = convert_epoch_to_datetime(int(outage["autoEtor"])).strftime(config["date-time"]["timeFormat"])
+                        if outage["autoEtor"]:
+                            outage["autoEtor"] = convert_epoch_to_datetime(int(outage["autoEtor"])).strftime(config["date-time"]["timeFormat"])
                     if "crewEta" in outage:
-                        outage["crewEta"] = convert_epoch_to_datetime(int(outage["crewEta"])).strftime(config["date-time"]["timeFormat"])
+                        if outage["crewEta"]:
+                            outage["crewEta"] = convert_epoch_to_datetime(int(outage["crewEta"])).strftime(config["date-time"]["timeFormat"])
                     if "currentEtor" in outage:
-                        outage["currentEtor"] = convert_epoch_to_datetime(int(outage["currentEtor"])).strftime(config["date-time"]["timeFormat"])
+                        if outage["currentEtor"]:
+                            outage["currentEtor"] = convert_epoch_to_datetime(int(outage["currentEtor"])).strftime(config["date-time"]["timeFormat"])
                     if "lastUpdateTime" in outage:
-                        outage["lastUpdateTime"] = convert_epoch_to_datetime(int(outage["lastUpdateTime"])).strftime(config["date-time"]["timeFormat"])
+                        if outage["lastUpdateTime"]:
+                            outage["lastUpdateTime"] = convert_epoch_to_datetime(int(outage["lastUpdateTime"])).strftime(config["date-time"]["timeFormat"])
                     if "outageStartTime" in outage:
-                        outage["outageStartTime"] = convert_epoch_to_datetime(int(outage["outageStartTime"])).strftime(config["date-time"]["timeFormat"])
+                        if outage["outageStartTime"]:
+                            outage["outageStartTime"] = convert_epoch_to_datetime(int(outage["outageStartTime"])).strftime(config["date-time"]["timeFormat"])
                     del outage["outageStatus"]
                     outage["PowerStatus"] = "Inactive"
                     return outage
     return {"PowerStatus": "Active"}
+
 
 #TODO functions for other APIs, get list of specific power providers
 
