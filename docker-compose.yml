@@ -1,27 +1,16 @@
 version: '2'
 services:
-  nginx-proxy:
-    restart: always
-    image: jwilder/nginx-proxy
-    container_name: nginx-proxy
-    networks:
-      - nginx-proxy
-    ports:
-      - "80:80"
-    volumes:
-      - /var/run/docker.sock:/tmp/docker.sock:ro
   power-outage-monitor:
     restart: always
     image: ccfs/power-outage-monitor
     labels:
-          com.centurylinklabs.watchtower.enable: true
+      com.centurylinklabs.watchtower.enable: true
+      caddy: http://power-api.quokka.ninja
+      caddy.reverse_proxy: "{{upstreams 80}}"
     networks:
-     - nginx-proxy
-    environment:
-     - VIRTUAL_HOST=power-api.quokka.ninja
+     - caddy
     volumes:
      - ./power-outage-monitor/sites:/app/sites
 networks:
-  nginx-proxy:
-    external:
-      name: nginx-proxy
+  caddy:
+    external: true
