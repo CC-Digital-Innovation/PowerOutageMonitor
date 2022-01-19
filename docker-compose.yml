@@ -4,8 +4,10 @@ services:
     restart: always
     image: ccfs/power-outage-monitor
     labels:
-      com.centurylinklabs.watchtower.enable: true
-      caddy: http://power-api.quokka.ninja
+      # enable for docker and watchtower workflow
+      # com.centurylinklabs.watchtower.enable: true
+      # edit to correct hostname
+      caddy: api.example.com
       caddy.reverse_proxy: "{{upstreams 80}}"
     networks:
      - caddy
