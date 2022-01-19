@@ -1,0 +1,62 @@
+web:
+    token: ENC[AES256_GCM,data:DMAT00kB1RKLKwrfZlSRZmA2X0sGaxAxXHa69o7iAGF+nd1npbzlUbCRk98LlzJiE84e5duXFjPYwi2qKlrRMgmM2X4qM/JAYprUiclXH3RZvT55kLfq5GC4H2UEyiV4T5/GFtyY9EgHA2UUXm2AAg4HZ/laSMKddAiR5sQuSYQH17yPkDzLL9rlIsSEjH7w+xOUxQvknXBIzLPEYbz5E6ibsKpgMrnMGkkCsYOQcyUH2SD9tw1sM0CZ/2y0u8q/N4waSAjaQF8jOX+C5roXdMmthjr+gepbXoD57zhx8CT4iV5IUlD6Eq71+19BDoUTDmxc43Nt+cXGSbtZmZeQYQ==,iv:Mg2ihTHvpDJqdtNcFAerTjQLKk3ilDdFV17YTQV5J9k=,tag:k5x3P049/p800ZMuJ1U9XA==,type:str]
+gis-api:
+    headers: null
+    params:
+        # buffer distance for input geometry
+        distance: "1000"
+        # response format
+        f: json
+        # precision (decimal places) of RETURNED geometry
+        geometryPrecision: "6"
+        # returned fields 
+        outFields: OBJECTID, UtilityCompany, StartDate, EstimatedRestoreDate, Cause, ImpactedCustomers, County, OutageStatus, OutageType, GlobalID, IncidentId
+        # output spatial relation to return longitude, latitude values
+        outSR: "4326"
+        # units for distance parameter, other options: esriSRUnit_Meter | esriSRUnit_StatuteMile | esriSRUnit_Foot | esriSRUnit_Kilometer | esriSRUnit_NauticalMile | esriSRUnit_USNauticalMile
+        unit: esriSRUnit_Meter
+        where: 1=1
+pge-api:
+    headers: null
+    params:
+        regionType: city
+        expand: "true"
+sce-api:
+    # wait time, in seconds, for HTML elements to appear
+    maxWaitTime: 5
+date-time:
+    # timezone to return, find more at: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List
+    timezone: America/Los_Angeles
+    timeFormat: '%m/%d/%Y %I:%M:%S %p %Z'
+logger:
+    logLevel: INFO
+    fileName: test
+    sysLog:
+        host: ENC[AES256_GCM,data:evCdNVEwu7vF6FRKM7Lja92L2+x5aQ==,iv:HxDj8SBPQdyuZJZiz8poHOlT+uYmkcrr94zPZKPlQWI=,tag:Ep8fE4GSon62QkKu5yec8A==,type:str]
+        port: ENC[AES256_GCM,data:5/e2mFU=,iv:5ZH1jrKiPo1GCvllo88YhYNZsqF/P8bSg5N0FKJkk6k=,tag:oF3iBxXswVqBbWIhC2C2Gg==,type:int]
+geocode:
+    # more at: https://developers.arcgis.com/rest/geocode/api-reference/geocoding-find-address-candidates.htm
+    headers: null
+    params:
+        f: json
+        outFields: location
+    # minimum accuracy of address (inclusive)
+    minScore: 97
+sqlite3:
+    dbName: sites/site.db
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault:
+        - vault_address: https://k3s.quokka.ninja
+          engine_path: sops
+          key_name: first-key
+          created_at: "2022-01-19T03:32:42Z"
+          enc: vault:v1:d0n7s2sQsmsuNxorSPn0uuaT8epjzz44+RRjMbG/V3n+9zdpCBzcG7xTwHNtGqqHYRKKyj6NBZ5JJxED
+    age: []
+    lastmodified: "2022-01-19T03:32:42Z"
+    mac: ENC[AES256_GCM,data:vciw/uVEWVcBdn6+zOSITDn1HFG6bnXLhwldkbwxFkvqXma2/0sIaIZz9VEA3FxeYyFVR2ATSod/IIX7C86kYQ36h4p2pv7HKcbT1pPNnJsHnjA38dPq5npLF+9H5D4+4LXsMCQFNvxGcZXuJ+cXjqrJtke3Gf0r02SAe/iW9B4=,iv:TQiVNjBjpALQ26T1+MC2HkRBlZj5bAcWIYt+be5AjxY=,tag:fmgVm12Wk9O6OINWzP26kA==,type:str]
+    pgp: []
+    encrypted_regex: token|host|port
+    version: 3.7.1
