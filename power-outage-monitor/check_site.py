@@ -87,7 +87,7 @@ def get_gis_power_status(site):
     elif len(statuses) > 1:
         logger.info("More than one outage found.")
         for outage in statuses:
-            logger.debug(json.dumps(outage, indent=4, sort_keys=True))
+            logger.info(json.dumps(outage, indent=4, sort_keys=True))
 
     site_status = statuses[0]["attributes"]
     

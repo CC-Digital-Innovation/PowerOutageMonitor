@@ -14,6 +14,9 @@ from sites import controller
 with open(os.path.join(os.path.dirname(__file__), "config.yaml")) as config_stream:
     config = yaml.safe_load(config_stream)
 
+LOG_LEVEL = config["logger"]["logLevel"]
+TOKEN = config["web"]["token"]
+
 @logger.catch
 def set_log_level(log_level):
     if log_level == "DEBUG":
@@ -42,14 +45,16 @@ def set_log_level(log_level):
         logger.enable("")
 
 
-set_log_level(config["logger"]["logLevel"])
+set_log_level(LOG_LEVEL)
 logger.info("Starting up PowerCheckAPI...")
 app = FastAPI()
 
 
 @logger.catch
 @app.get("/checkSite")
-def check_site(siteName: str, provider: Optional[str] = None):
+def check_site(siteName: str, token: str, provider: Optional[str] = None):
+    if token != TOKEN:
+        raise HTTPException(status_code=401, detail='Unauthorized request.')
     site = controller.get_site(siteName)
     if site:
         logger.info("Found site '" + siteName + ".' Getting power status...")
@@ -60,7 +65,9 @@ def check_site(siteName: str, provider: Optional[str] = None):
 
 @logger.catch
 @app.get("/sites/{siteName}")
-def get_site(siteName: str):
+def get_site(siteName: str, token: str):
+    if token != TOKEN:
+        raise HTTPException(status_code=401, detail='Unauthorized request.')
     site = controller.get_site(siteName)
     if site:
         logger.info("Found site '" + siteName + ".' Sending response...")
@@ -71,13 +78,17 @@ def get_site(siteName: str):
 
 @logger.catch
 @app.get("/sites")
-def get_all_sites():
+def get_all_sites(token: str):
+    if token != TOKEN:
+        raise HTTPException(status_code=401, detail='Unauthorized request.')
     return controller.get_all()
 
 
 @logger.catch
 @app.post("/sites")
-def add_site(siteName: str, street: str, city: str, state: str, longitude: Optional[str] = None, latitude: Optional[str] = None):
+def add_site(siteName: str, street: str, city: str, state: str, token: str, longitude: Optional[str] = None, latitude: Optional[str] = None):
+    if token != TOKEN:
+        raise HTTPException(status_code=401, detail='Unauthorized request.')
     if not longitude or not latitude:
         longitude, latitude = geocode.get_long_lat(",".join((street, city, state)))
     if longitude and latitude:
