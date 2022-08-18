@@ -1,15 +1,12 @@
 import json
-import os
 from copy import deepcopy
 from datetime import datetime
 
 import pytz
 import requests
-import yaml
 from loguru import logger
 
-with open(os.path.join(os.path.dirname(__file__), "config.yaml")) as config_stream:
-    config = yaml.safe_load(config_stream)
+from config import config
 
 @logger.catch
 def convert_epoch_to_datetime(epoch):

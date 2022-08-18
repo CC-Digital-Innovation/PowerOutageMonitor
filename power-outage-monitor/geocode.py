@@ -1,13 +1,10 @@
 import json
-import os
 from copy import deepcopy
 
 import requests
-import yaml
 from loguru import logger
 
-with open(os.path.join(os.path.dirname(__file__), "config.yaml")) as config_stream:
-    config = yaml.safe_load(config_stream)
+from config import config
 
 @logger.catch
 def get_long_lat(address):
@@ -53,11 +50,3 @@ def get_long_lat(address):
         logger.info("Address found: " + jsonResponse["candidates"][0]["address"] + " | Score: " + str(jsonResponse["candidates"][0]["score"]))
         point = jsonResponse["candidates"][0]["location"]
         return point["x"], point["y"]
-
-@logger.catch
-def main():
-    #Test with multiple addresses
-    logger.info(get_long_lat("5520 Lake Isabella Rd.  #G-1, Lake Isabella, CA"))
-
-if __name__ == "__main__":
-    main()
