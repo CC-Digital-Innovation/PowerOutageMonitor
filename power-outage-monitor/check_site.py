@@ -8,7 +8,6 @@ from loguru import logger
 
 from config import config
 
-@logger.catch
 def convert_epoch_to_datetime(epoch):
     """convert epoch to datetime with config-specified timezone
     
@@ -29,7 +28,6 @@ def convert_epoch_to_datetime(epoch):
         return converted_datetime.astimezone(pytz.timezone(config["date-time"]["timezone"]))
     return converted_datetime
 
-@logger.catch
 def get_gis_power_status(site):
     """checks the power status of a site using CalOES's Power Outage Incident API.
     (more at: https://gis.data.ca.gov/datasets/CalEMA::power-outage-incidents/about)
@@ -101,7 +99,6 @@ def get_gis_power_status(site):
     return site_status
         
 
-@logger.catch
 def get_pge_power_status(site):
     """checks the power status of a site using PG&E's API
 
@@ -177,7 +174,6 @@ def get_pge_power_status(site):
 #TODO functions for other APIs, get list of specific power providers
 
 #function to redirect which function API to call
-@logger.catch
 def get_site_status(site, provider):
     address = ", ".join((site["street"], site["city"], site["state"]))
     payload = {

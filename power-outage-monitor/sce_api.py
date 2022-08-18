@@ -9,7 +9,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 
 from config import config
 
-@logger.catch
 def get_power_outage_sce(address):
     """Scrape outages from https://www.sce.com/outage-center/addresslookup
 

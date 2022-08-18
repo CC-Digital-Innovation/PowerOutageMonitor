@@ -6,7 +6,6 @@ from loguru import logger
 
 from config import config
 
-@logger.catch
 def get_long_lat(address):
     """Uses ArcGIS's REST API 'findAddressCandidates' to find the longitude and latitude of a given address.
     If API returns multiple results, return the most accurate and acceptable, i.e. above minScore, address.

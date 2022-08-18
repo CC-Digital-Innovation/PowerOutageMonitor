@@ -4,7 +4,7 @@ web:
     port: ENC[AES256_GCM,data:Ug8=,iv:g2IigdvUehfiXUZr4UjnSi/IEAny87UBwPb9Pdykz6E=,tag:z5cRyYGnQ6ymvFrGXNBJUg==,type:int]
     # path to include for api behind a proxy
     proxy: /
-    # separate from application log level (see logger below)
+    # fastapi log level (separate from application log level)
     log_level: info
 gis-api:
     headers: null
@@ -66,8 +66,8 @@ sops:
           created_at: "2022-01-19T03:32:42Z"
           enc: vault:v1:d0n7s2sQsmsuNxorSPn0uuaT8epjzz44+RRjMbG/V3n+9zdpCBzcG7xTwHNtGqqHYRKKyj6NBZ5JJxED
     age: []
-    lastmodified: "2022-08-18T19:37:04Z"
-    mac: ENC[AES256_GCM,data:MiR/47K6EsfNfbG2e8hnJjd/efnv2Bh1uSoPiH0rDwuIKjFRlrzDWFkZAlK1VtE5yj9+cGBKgY8dH+EY9DXi1Jho4kEV/+HD2Vf3kjrDb6YeZ98qVxRZI+la9BNvCj2vFDqPYFD8K85SF1UdID7L0mAwT9bfypVh1Qsh6y5dDD0=,iv:jf158cWyDkLv7vyXEMExTrr46QBZWXjry0dr16Bb+jI=,tag:k1upbq8ggv5yaWNkXg1XDA==,type:str]
+    lastmodified: "2022-08-18T21:25:45Z"
+    mac: ENC[AES256_GCM,data:1ZVbM/FeQ7qaCO5dXwUwJusq2XgF0AAMWN32ELVILhaMV8TybdkQUXb2456gyipyqI+fzveLuMKMu7SWWv3my/ScBsOMu1aZ7rXUZVpViCjbMs0E7H23L6SKt8oYOP/LGsuSZsOyEulVsyaJ5Lz43b1BQtPqrOcNsQWwzZUN1jU=,iv:wNKAxE5m46NatPPSmEQpoXGM/lbK7CxAQZbEQwlU97k=,tag:MbibU10nbKAGKtmYS6rRJQ==,type:str]
     pgp: []
     encrypted_regex: token|host|port
     version: 3.7.1
