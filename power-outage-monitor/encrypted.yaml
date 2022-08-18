@@ -1,5 +1,11 @@
 web:
-    token: ENC[AES256_GCM,data:DMAT00kB1RKLKwrfZlSRZmA2X0sGaxAxXHa69o7iAGF+nd1npbzlUbCRk98LlzJiE84e5duXFjPYwi2qKlrRMgmM2X4qM/JAYprUiclXH3RZvT55kLfq5GC4H2UEyiV4T5/GFtyY9EgHA2UUXm2AAg4HZ/laSMKddAiR5sQuSYQH17yPkDzLL9rlIsSEjH7w+xOUxQvknXBIzLPEYbz5E6ibsKpgMrnMGkkCsYOQcyUH2SD9tw1sM0CZ/2y0u8q/N4waSAjaQF8jOX+C5roXdMmthjr+gepbXoD57zhx8CT4iV5IUlD6Eq71+19BDoUTDmxc43Nt+cXGSbtZmZeQYQ==,iv:Mg2ihTHvpDJqdtNcFAerTjQLKk3ilDdFV17YTQV5J9k=,tag:k5x3P049/p800ZMuJ1U9XA==,type:str]
+    token: ENC[AES256_GCM,data:6bXu+wpCM7HgBJgCwlQXltj0ZBCnqczeYvDQ2sAr4FdsH0T65wlT4X+IpQi0EP9mmAhmlOFGDbkBa3h0tFuZWSTGuYE3B7iJhepc8Czu+7vbQ2C+nc250mNFnltBg/piAXnzdNFGmFMJvZXnx0DXPmfpijN7GQ==,iv:h2TTDYEtbi1diHXikWT/iURoesBXG7+72J2NPmn05do=,tag:FfMGFx5EQtApSdN1l+RWkg==,type:str]
+    host: ENC[AES256_GCM,data:QquL+9UqPA==,iv:I/2lkgJ7We8EUfSduQN/kDw2h2LfIdMCCFgWLRDFb/Q=,tag:JG91S+M621kkHiV/B+sR0A==,type:str]
+    port: ENC[AES256_GCM,data:Ug8=,iv:g2IigdvUehfiXUZr4UjnSi/IEAny87UBwPb9Pdykz6E=,tag:z5cRyYGnQ6ymvFrGXNBJUg==,type:int]
+    # path to include for api behind a proxy
+    proxy: /
+    # separate from application log level (see logger below)
+    log_level: info
 gis-api:
     headers: null
     params:
@@ -29,11 +35,16 @@ date-time:
     timezone: America/Los_Angeles
     timeFormat: '%m/%d/%Y %I:%M:%S %p %Z'
 logger:
-    logLevel: INFO
-    fileName: test
+    console:
+        log_level: info
+    # file:
+    # supports name substitution with {}, more at: https://loguru.readthedocs.io/en/stable/api/logger.html
+    # name: 
+    # log_level:
     sysLog:
         host: ENC[AES256_GCM,data:evCdNVEwu7vF6FRKM7Lja92L2+x5aQ==,iv:HxDj8SBPQdyuZJZiz8poHOlT+uYmkcrr94zPZKPlQWI=,tag:Ep8fE4GSon62QkKu5yec8A==,type:str]
         port: ENC[AES256_GCM,data:5/e2mFU=,iv:5ZH1jrKiPo1GCvllo88YhYNZsqF/P8bSg5N0FKJkk6k=,tag:oF3iBxXswVqBbWIhC2C2Gg==,type:int]
+        log_level: info
 geocode:
     # more at: https://developers.arcgis.com/rest/geocode/api-reference/geocoding-find-address-candidates.htm
     headers: null
@@ -55,8 +66,8 @@ sops:
           created_at: "2022-01-19T03:32:42Z"
           enc: vault:v1:d0n7s2sQsmsuNxorSPn0uuaT8epjzz44+RRjMbG/V3n+9zdpCBzcG7xTwHNtGqqHYRKKyj6NBZ5JJxED
     age: []
-    lastmodified: "2022-01-19T03:32:42Z"
-    mac: ENC[AES256_GCM,data:vciw/uVEWVcBdn6+zOSITDn1HFG6bnXLhwldkbwxFkvqXma2/0sIaIZz9VEA3FxeYyFVR2ATSod/IIX7C86kYQ36h4p2pv7HKcbT1pPNnJsHnjA38dPq5npLF+9H5D4+4LXsMCQFNvxGcZXuJ+cXjqrJtke3Gf0r02SAe/iW9B4=,iv:TQiVNjBjpALQ26T1+MC2HkRBlZj5bAcWIYt+be5AjxY=,tag:fmgVm12Wk9O6OINWzP26kA==,type:str]
+    lastmodified: "2022-08-18T19:37:04Z"
+    mac: ENC[AES256_GCM,data:MiR/47K6EsfNfbG2e8hnJjd/efnv2Bh1uSoPiH0rDwuIKjFRlrzDWFkZAlK1VtE5yj9+cGBKgY8dH+EY9DXi1Jho4kEV/+HD2Vf3kjrDb6YeZ98qVxRZI+la9BNvCj2vFDqPYFD8K85SF1UdID7L0mAwT9bfypVh1Qsh6y5dDD0=,iv:jf158cWyDkLv7vyXEMExTrr46QBZWXjry0dr16Bb+jI=,tag:k1upbq8ggv5yaWNkXg1XDA==,type:str]
     pgp: []
     encrypted_regex: token|host|port
     version: 3.7.1
