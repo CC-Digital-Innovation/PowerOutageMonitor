@@ -6,9 +6,11 @@ from typing import Optional
 import yaml
 from fastapi import FastAPI, HTTPException
 from loguru import logger
+from prtg import PrtgApi
 
+import check_all
 import geocode
-from check_site import get_site_status
+from opsgenie import OpsgenieApi
 from sites import controller
 
 with open(os.path.join(os.path.dirname(__file__), "config.yaml")) as config_stream:
@@ -16,6 +18,14 @@ with open(os.path.join(os.path.dirname(__file__), "config.yaml")) as config_stre
 
 LOG_LEVEL = config["logger"]["logLevel"]
 TOKEN = config["web"]["token"]
+try:
+    PRTG_API = PrtgApi(config['prtg']['url'], config['prtg']['username'], config['prtg']['password'], config['prtg']['is_passhash'])
+except KeyError:
+    PRTG_API = PrtgApi(config['prtg']['url'], config['prtg']['username'], config['prtg']['password'])
+try:
+    OPSGENIE_API = OpsgenieApi(config['opsgenie']['api_key'], config['opsgenie']['identifier_type'])
+except KeyError:
+    OPSGENIE_API = OpsgenieApi(config['opsgenie']['api_key'])
 
 @logger.catch
 def set_log_level(log_level):
@@ -49,19 +59,17 @@ set_log_level(LOG_LEVEL)
 logger.info("Starting up PowerCheckAPI...")
 app = FastAPI()
 
-
 @logger.catch
-@app.get("/checkSite")
-def check_site(siteName: str, token: str, provider: Optional[str] = None):
+@app.get('/checkSite')
+def check_site(siteName: str, alertId: str, actionName: str, token: str):
     if token != TOKEN:
         raise HTTPException(status_code=401, detail='Unauthorized request.')
     site = controller.get_site(siteName)
-    if site:
-        logger.info("Found site '" + siteName + ".' Getting power status...")
-        return get_site_status(site, provider)
-    logger.info("Could not find site '" + siteName + "'")
-    raise HTTPException(status_code=404, detail="Could not find site '" + siteName + "'")
-
+    if not site:
+        logger.info("Could not find site '" + siteName + "'")
+        raise HTTPException(status_code=404, detail="Could not find site '" + siteName + "'")
+    logger.info("Found site '" + siteName + ".' Getting power status...")
+    return check_all.check(siteName, alertId, actionName, PRTG_API, OPSGENIE_API)
 
 @logger.catch
 @app.get("/sites/{siteName}")
