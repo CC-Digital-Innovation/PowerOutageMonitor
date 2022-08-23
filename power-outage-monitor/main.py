@@ -7,9 +7,9 @@ from pathlib import Path
 import requests
 import uvicorn
 from loguru import logger
+from prtg import PrtgApi
 
 import config
-from api import app
 
 if __name__ == '__main__':
     with logger.catch():
@@ -55,4 +55,4 @@ if __name__ == '__main__':
 
         # start api
         logger.info('Starting Power Outage Check API.')
-        uvicorn.run(app, host=HOST, port=PORT, root_path=PROXY, log_level=LOG_LEVEL)
+        uvicorn.run('api:app', host=HOST, port=PORT, root_path=PROXY, log_level=LOG_LEVEL)
