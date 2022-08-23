@@ -7,7 +7,6 @@ from pathlib import Path
 import requests
 import uvicorn
 from loguru import logger
-from prtg import PrtgApi
 
 import config
 
