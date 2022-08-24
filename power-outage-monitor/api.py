@@ -8,17 +8,20 @@ import check_all
 import geocode
 from config import config
 from opsgenie import OpsgenieApi
+from snow import SnowApi
 from sites import controller
 
 TOKEN = config["web"]["token"]
 try:
-    PRTG_API = PrtgApi(config['prtg']['url'], config['prtg']['username'], config['prtg']['password'], config['prtg']['is_passhash'])
+    PRTG_API = PrtgApi(config['prtg']['url'], config['prtg']['username'], config['prtg']['password'], is_passhash=config['prtg']['is_passhash'])
 except KeyError:
     PRTG_API = PrtgApi(config['prtg']['url'], config['prtg']['username'], config['prtg']['password'])
 try:
     OPSGENIE_API = OpsgenieApi(config['opsgenie']['api_key'], config['opsgenie']['identifier_type'])
 except KeyError:
     OPSGENIE_API = OpsgenieApi(config['opsgenie']['api_key'])
+SNOW_API = SnowApi(config['snow']['instance'], config['snow']['username'], config['snow']['password'])
+SNOW_FILTER = config['snow']['filter']
 
 app = FastAPI()
 
@@ -31,7 +34,7 @@ def check_site(siteName: str, alertId: str, actionName: str, token: str):
         logger.info("Could not find site '" + siteName + "'")
         raise HTTPException(status_code=404, detail="Could not find site '" + siteName + "'")
     logger.info("Found site '" + siteName + ".' Getting power status...")
-    return check_all.check(siteName, alertId, actionName, PRTG_API, OPSGENIE_API)
+    return check_all.check(siteName, alertId, actionName, PRTG_API, OPSGENIE_API, SNOW_API, SNOW_FILTER)
 
 
 @app.get("/sites/{siteName}")

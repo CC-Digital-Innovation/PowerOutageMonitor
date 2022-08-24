@@ -3,8 +3,13 @@ import re
 from loguru import logger
 
 import check_outage
+from check_meraki import ObjectNotFound
 
-def check(site_name, alert_id, action_name, prtg_api, opsgenie_api):
+MERAKI_RE = re.compile('meraki', re.I)
+
+def check(site_name, alert_id, action_name,
+            prtg_api, opsgenie_api, meraki_api, 
+            snow_api, snow_filter):
     # payload to post for alert extra properties
     details = {"SiteName":site_name}
 
@@ -13,7 +18,7 @@ def check(site_name, alert_id, action_name, prtg_api, opsgenie_api):
     if gis_response:
         if "PowerStatus" in gis_response:
             if gis_response["PowerStatus"] == "Active":
-                details["Power_SitePower"] = "Up"
+                details["Power_ProviderStatus"] = "Up"
             elif gis_response["PowerStatus"] == "Inactive":
                 # prefix keys
                 prefixed = {}
@@ -21,16 +26,16 @@ def check(site_name, alert_id, action_name, prtg_api, opsgenie_api):
                     prefixed["Power_" + key] = val
                 details.update(prefixed)
                 del details["Power_PowerStatus"]
-                details["Power_SitePower"] = "Down"
+                details["Power_ProviderStatus"] = "Down"
             else:
                 logger.error("PowerStatus '" + gis_response["PowerStatus"] + "' is not a valid response.")
-                details["Power_SitePower"] = "Unknown"
+                details["Power_ProviderStatus"] = "Unknown"
         else:
             logger.error("Cannot parse outage status.")
-            details["Power_SitePower"] = "Unknown"
+            details["Power_ProviderStatus"] = "Unknown"
     else:
         logger.error("Unable to retrieve outage status.")
-        details["Power_SitePower"] = "Unknown"
+        details["Power_ProviderStatus"] = "Unknown"
 
     # get pi status
     pi_response = prtg_api.get_sensors_by_name('Ping', 'PI - LTE', site_name)
@@ -74,27 +79,43 @@ def check(site_name, alert_id, action_name, prtg_api, opsgenie_api):
     else:
         logger.error("Cannot parse probe devices in payload.")
 
-    # Site power confidence level
-    if details["Power_SitePower"] == "Up":
-        if not pi_is_up and not probe_is_up:
-            details["Power_SitePowerConfidence"] = "Low"
-        else:
-            details["Power_SitePowerConfidence"] = "High"
-    elif details["Power_SitePower"] == "Down":
-        if pi_is_up is None or probe_is_up is None:
-            logger.warning('Could not check pi or probe status. Confidence default to low')
-            details["Power_SitePowerConfidence"] = "Low"
-        elif not pi_is_up and not probe_is_up:
-            details["Power_SitePowerConfidence"] = "High"
-
-            # add tag for site down
-            add_tag_status_code = opsgenie_api.add_alert_tags(alert_id, ["SitePowerDown"], note=f"Automated action {action_name} detected site power is down with high confidence. Tag has been added.")
-            if add_tag_status_code == 202:
-                logger.info(f"Successfully added tags to alert {alert_id}.")
+    # get meraki device and status
+    meraki_is_up = None
+    cis = snow_api.get_cis_filtered_by(snow_filter)
+    try:
+        ap = next([ci for ci in cis if MERAKI_RE.search(ci['name'])])
+    except StopIteration:
+        logger.error('Cannot find meraki device')
+        details['Cisco_MerakiStatus'] = 'Unknown'
+    else:
+        try:
+            if not ap['serial_number']:
+                try:
+                    device = meraki_api.get_device_by_mac(ap['mac_address'])
+                except ObjectNotFound:
+                    device = meraki_api.get_device_by_name(ap['name'])
+                ap['serial_number'] = device['serial']
+            meraki_is_up = meraki_api.get_device_status(ap['serial_number'])
+            if meraki_is_up:
+                details['Cisco_MerakiStatus'] = 'Up'
             else:
-                logger.error(f"Could not add tags to alert {alert_id}")
+                details['Cisco_MerakiStatus'] = 'Down'
+        except ObjectNotFound:
+            details['Cisco_MerakiStatus'] = 'Unknown'
+
+    # Site power output
+    if meraki_is_up or pi_is_up or probe_is_up:
+        details['Power_SitePower'] = 'Up'
+    elif details['Power_ProviderStatus'] == 'Up':
+        details['Power_SitePower'] = 'Likely Down'
+    else:
+        details['Power_SitePower'] = 'Down'
+        # add tag for site down
+        add_tag_status_code = opsgenie_api.add_alert_tags(alert_id, ["SitePowerDown"], note=f"Automated action {action_name} detected site power is down with high confidence. Tag has been added.")
+        if add_tag_status_code == 202:
+            logger.info(f"Successfully added tags to alert {alert_id}.")
         else:
-            details["Power_SitePowerConfidence"] = "Low"
+            logger.error(f"Could not add tags to alert {alert_id}")
 
     # User input validity check
     details["PowerCheckValidation"] = ""
