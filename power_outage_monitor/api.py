@@ -5,7 +5,7 @@ from prtg import PrtgApi
 import check_all
 import geocode
 from config import config
-from check_meraki import MerakiOrgApi
+from meraki import MerakiOrgApi
 from opsgenie import OpsgenieApi
 from snow import SnowApi
 

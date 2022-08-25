@@ -3,7 +3,7 @@ import re
 from loguru import logger
 
 import check_outage
-from check_meraki import ObjectNotFound
+from meraki.exceptions import ObjectNotFound
 
 MERAKI_RE = re.compile('meraki', re.I)
 
