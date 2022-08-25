@@ -1,4 +1,7 @@
-from fastapi import FastAPI, HTTPException
+import secrets
+
+from fastapi import Depends, FastAPI, HTTPException, Security, status
+from fastapi.security import APIKeyHeader
 from loguru import logger
 from prtg import PrtgApi
 
@@ -24,10 +27,16 @@ SNOW_FILTER = config['snow']['filter']
 
 app = FastAPI()
 
-@app.get("/checkSite")
-def check_site(siteName: str, alertId: str, actionName: str, token: str):
-    if token != TOKEN:
-        raise HTTPException(status_code=401, detail='Unauthorized request.')
+api_key = APIKeyHeader(name='X-API-Key')
+
+def authorize(key: str = Security(api_key)):
+    if not secrets.compare_digest(key, TOKEN):
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail='Invalid token')
+
+@app.get("/checkSite", dependencies=[Depends(authorize)])
+def check_site(siteName: str, alertId: str, actionName: str):
     site = SNOW_API.get_site_by_name(siteName)
     if not site:
         logger.info("Could not find site '" + siteName + "'")
